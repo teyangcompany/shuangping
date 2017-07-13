@@ -1,0 +1,42 @@
+{
+  "name": "shuangping",
+  "version": "1.0.0",
+  "description": "echart demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --open --inline --hot",
+    "build": "webpack -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teyangcompany/shuangping.git"
+  },
+  "keywords": [
+    "echarts"
+  ],
+  "author": "lmw6412036",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teyangcompany/shuangping/issues"
+  },
+  "homepage": "https://github.com/teyangcompany/shuangping#readme",
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "clean-webpack-plugin": "^0.1.16",
+    "css-loader": "^0.28.4",
+    "glob": "^7.1.2",
+    "html-webpack-plugin": "^2.29.0",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.2.0",
+    "webpack-dev-server": "^2.5.1"
+  },
+  "dependencies": {
+    "echarts": "^3.6.2",
+    "webpack-merge": "^4.1.0"
+  }
+}
