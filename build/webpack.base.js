@@ -28,6 +28,7 @@ module.exports = {
     entry: entryObj,
     output: {
         path: resolve("dist"),
+        publicPath: "/",
         filename: "[name].[hash].js"
     },
     module: {
@@ -53,6 +54,24 @@ module.exports = {
                         presets: ['env']
                     }
                 }
+            },
+            {
+                test:/\.(png|jpg|gif)$/,
+                use:[{
+                    loader:'url-loader',
+                    options:{
+                        limit:8192,
+                        name:"static/img/[name].[ext]?[hash]"
+                    }
+                }]
+            },
+            {
+                test:/\.ejs$/,
+                use:[
+                    {
+                        loader: "ejs-loader"
+                    }
+                ]
             }
         ]
     },

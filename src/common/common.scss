@@ -1,0 +1,33 @@
+@import "font";
+@import "public";
+body{
+  background-image: url("../../../static/img/bjtp.png");
+  background-position: center;
+}
+header{
+  $h:35px;
+  background-color: rgba(9,36,87,.5);
+  height: $h;
+  overflow: hidden;
+  >div{
+    float: left;
+  }
+  .logo{
+    padding-top: 5px;
+    padding-left: 20px;
+    img{
+      height: 25px;
+    }
+  }
+  >.text{
+    padding-left: 5px;
+    color: white;
+    line-height: $h;
+  }
+  >.time{
+    float: right;
+    line-height: $h;
+    margin-right: 20px;
+    color: white;
+  }
+}
