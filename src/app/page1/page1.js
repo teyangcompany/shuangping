@@ -16,8 +16,8 @@ number(".module-number")
 
 setInterval((res) => {
     let t = $("#user_total", mainBox).attr("total");
-    t = parseInt(t) + Math.round(Math.random() * 100);
+    t = parseInt(t) + Math.round(Math.random() * 1000);
     $("#user_total", mainBox).attr("total", t);
-}, 10000)
+}, 5000)
 
 //import echarts from "echarts";

@@ -1,6 +1,18 @@
 @import "../../common/common";
-.main{
-  .total{
-    height: 100px;
+
+.main {
+  .total {
+    $h: 100px;
+    height: $h;
+    > div {
+      padding-top: 25px;
+      width: 50%;
+      text-align: center;
+      display: table-cell;
+      vertical-align: middle;
+      > div {
+        display: inline-block;
+      }
+    }
   }
 }

@@ -2,7 +2,15 @@
   ul {
     overflow: hidden;
     $c1: rgb(86, 225, 238);
+    >div{
+      float: left;
+      height: 50px;
+      line-height: 50px;
+      color: #fdde73;
+      font-size: 20px;
+    }
     > li {
+      margin-left: 5px;
       overflow: hidden;
       font-family: "Microsoft JhengHei";
       background-color: rgba(20, 40, 81, .7);
@@ -19,14 +27,14 @@
         background: none;
         border: 0px none;
       }
-      &.yesnumber.transition{
+      &.yesnumber{
         ol{
           transition: all 1s ease;
         }
       }
     }
     > li + li {
-      margin-left: 5px;
+
     }
   }
 }

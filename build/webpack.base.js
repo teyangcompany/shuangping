@@ -78,9 +78,5 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(['dist']),
         ...htmls
-    ],
-    devServer: {
-        contentBase: resolve('dist'),
-        port: 8080
-    }
+    ]
 }

@@ -20,10 +20,42 @@ const makeNumberQueue = (el, number) => {
     }))
 }
 
+const animate = (el) => {
+    let num = el.attr("number");
+    let ol = $('ol', el);
+    let cur = el.attr('current');
+    if (!cur) {
+        cur = 0;
+    }
+    if (cur == num) {
+        return
+    }
+
+    let cha = 0;
+    $("li", ol).each((i, o) => {
+        if ($(o).text() == num) {
+            cha = i;
+        }
+    })
+
+    ol.css("transform", `translateY(-${cha * 50}px)`)
+    ol.off("transitionend").on("transitionend", () => {
+        ol.css("transform", "")
+        makeNumberQueue(el, num);
+        el.attr("current", num);
+    })
+
+
+}
+
 
 const init = (el) => {
     let total = el.attr("total") + "";
     let c = el.attr("current");
+    let label = el.attr("label");
+    if (label) {
+        $("ul>div", el).text(label);
+    }
     if (c == total) {
         return;
     }
@@ -33,7 +65,7 @@ const init = (el) => {
     }
     $("ul>li:not('.nonumber')", el).each((index, li) => {
         $(li).attr('number', total.substr(index, 1));
-        $(li).addClass("yesnumber");
+        animate($(li));
     })
 }
 
