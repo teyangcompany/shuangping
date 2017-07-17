@@ -1,5 +1,4 @@
 @import "../../common/common";
-
 .main {
   .total {
     $h: 100px;
@@ -15,11 +14,59 @@
       }
     }
   }
-  .data{
-    .map{
+  .data {
+    .map {
       width: 50%;
-      #map{
+      #map {
         margin: 0 25px;
+      }
+    }
+    .charts {
+      width: 50%;
+      .title {
+        @include h_lh(40px);
+        color: $mainColor;
+        font-size: 16px;
+        padding-left: 15px;
+        border-bottom: 1px solid $mainColor;
+      }
+      .container {
+        padding: 10px;
+      }
+      .wrap {
+        background-color: $bgColor;
+        border: 1px solid $mainColor;
+      }
+      .reg-part {
+        .pielist {
+          ul {
+            overflow: hidden;
+            li {
+              width: 25%;
+              float: left;
+            }
+          }
+        }
+      }
+      .download-part {
+        margin-top: 15px;
+        position: relative;
+        .line{
+          position: absolute;
+          left: 40%;
+          top: 50px;
+          bottom: 10px;
+          width: 1px;
+          background-color: $mainColor;
+        }
+        .pie {
+          border-right: 0px none;
+          width: 40%;
+        }
+        .bar {
+          border-left: 0px none;
+          width: 60%;
+        }
       }
     }
   }

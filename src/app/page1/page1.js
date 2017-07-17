@@ -9,7 +9,10 @@ import time from "../../module/time/time";
 import number from "../../module/number/number";
 
 import echarts from "echarts";
-import "../../lib/china"
+import "../../lib/china";
+import tuli from "../../module/tuli/tuli";
+
+import pie1 from "../../module/pie1/pie1";
 
 let mainBox = $("body");
 $('header', mainBox).html(header({}));
@@ -66,7 +69,6 @@ let mapOption = {
         label: {
             normal: {
                 formatter: (params) => {
-                    console.log(params);
                     return `${params.name}\n\n下载量：1000\n\n下载量：1000\n\n下载量：1000`
                 },
                 position: 'right',
@@ -88,3 +90,38 @@ let mapOption = {
 };
 mapChart.setOption(mapOption);
 
+//注册用户数
+tuli();
+
+$("#total-reg").data("data", [
+    {name: "V", text: "微信(V)", value: 400},
+    {name: "A", text: "APP(A)", value: 500},
+    {name: "X", text: "线上(X)", value: 800}
+])
+
+$("#month-reg").data("data", [
+    {name: "V", text: "微信(V)", value: 500},
+    {name: "A", text: "APP(A)", value: 300},
+    {name: "X", text: "线上(X)", value: 900}
+])
+
+$("#week-reg").data("data", [
+    {name: "V", text: "微信(V)", value: 600},
+    {name: "A", text: "APP(A)", value: 700},
+    {name: "X", text: "线上(X)", value: 400}
+])
+
+$("#day-reg").data("data", [
+    {name: "V", text: "微信(V)", value: 100},
+    {name: "A", text: "APP(A)", value: 80},
+    {name: "X", text: "线上(X)", value: 180}
+])
+pie1(echarts);
+//下载量/注册量/服务量
+const donwloadPartInit = function () {
+    let regPartHeight = $(".reg-part").height();
+    $(".download-part>div").height(H - regPartHeight - 35 - 100 - 15 - 10);
+}
+setTimeout(() => {
+    donwloadPartInit();
+}, 1500);

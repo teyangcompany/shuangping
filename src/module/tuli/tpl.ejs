@@ -1,0 +1,8 @@
+<ul class="oh">
+    <% for(var i = 0;i < list.length;i++){ %>
+    <% var d = list[i] %>
+    <li class="fl">
+        <i class="<%= d.name %>"><font>&nbsp;</font></i><span><%= d.v1 %></span><i class="<%= d.name %>"><%= d.v2 %></i>
+    </li>
+    <% } %>
+</ul>

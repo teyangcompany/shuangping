@@ -1,0 +1,49 @@
+@import "../../common/common";
+.module-tuli {
+  ul {
+    li + li {
+      margin-left: 20px;
+    }
+    li {
+      @include h_lh(25px);
+      overflow: hidden;
+      i, span, font {
+        float: left;
+        font-size: 14px;
+        display: inline-block;
+      }
+      i:first-child{
+        padding-top: 10px;
+      }
+      span {
+        color: white;
+      }
+      i {
+        font-style: normal;
+        font {
+          margin-right: 5px;//18863756202 18863756272
+          width: 15px;
+          height: 5px;
+        }
+      }
+      i.wei {
+        color: #00ffff;
+        font{
+         background-color: #00ffff;
+        }
+      }
+      i.app {
+        color: #089dfb;
+        font{
+          background-color: #089dfb;
+        }
+      }
+      i.online {
+        color: #615afb;
+        font{
+          background-color: #615afb;
+        }
+      }
+    }
+  }
+}
