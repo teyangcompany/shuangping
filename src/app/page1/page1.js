@@ -13,6 +13,12 @@ import "../../lib/china";
 import tuli from "../../module/tuli/tuli";
 
 import pie1 from "../../module/pie1/pie1";
+import "swiper";
+import "../../../static/swiper/swiper-3.4.2.min.css"
+
+import pie2 from "../../module/pie2/pie2"
+
+import bar1 from "../../module/bar1/bar1"
 
 let mainBox = $("body");
 $('header', mainBox).html(header({}));
@@ -118,10 +124,31 @@ $("#day-reg").data("data", [
 ])
 pie1(echarts);
 //下载量/注册量/服务量
+const swiperInit = (selector) => {
+    return new Swiper(selector, {
+        autoplay: 5000,//可选选项，自动滑动
+        loop: true,
+        onSlideChangeEnd: (swiper) => {
+            let index = (swiper.activeIndex)
+            $(".pie .title span").eq(3 - index).addClass('current').siblings().removeClass("current");
+            $(selector).find("ol li").eq(3 - index).addClass('current').siblings().removeClass("current");
+        }
+    })
+}
+
+
 const donwloadPartInit = function () {
     let regPartHeight = $(".reg-part").height();
-    $(".download-part>div").height(H - regPartHeight - 35 - 100 - 15 - 10);
+    let h = H - regPartHeight - 35 - 100 - 15 - 10;
+    $(".download-part>div").height(h);
+    $("#swiper").height(h - 40 - 20)
+    swiperInit("#swiper");
+    pie2(echarts);
+    bar1(echarts);
 }
 setTimeout(() => {
     donwloadPartInit();
 }, 1500);
+
+
+//

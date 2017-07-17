@@ -3,9 +3,9 @@
  */
 const init = function (el, echarts, data) {
     let dom = $(el);
-    dom.height(dom.width());
-
-    if(!data){
+    let H = (window.innerHeight - 100 - 35 - 15) / 2;
+    dom.height(H - 40 - 10 - 10 - 25);
+    if (!data) {
         return
     }
 

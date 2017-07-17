@@ -31,6 +31,11 @@ module.exports = {
         publicPath: "/",
         filename: "[name].[hash].js"
     },
+    resolve:{
+        alias:{
+            "swiper":resolve("./static/swiper/swiper-3.4.2.jquery.min.js")
+        }
+    },
     module: {
         rules: [
             {

@@ -1,4 +1,5 @@
 @import "../../common/common";
+
 .main {
   .total {
     $h: 100px;
@@ -51,7 +52,7 @@
       .download-part {
         margin-top: 15px;
         position: relative;
-        .line{
+        .line {
           position: absolute;
           left: 40%;
           top: 50px;
@@ -62,6 +63,38 @@
         .pie {
           border-right: 0px none;
           width: 40%;
+          .title{
+            .current{
+              color: #00ffff;
+            }
+          }
+          #swiper {
+            overflow: hidden;
+            position: relative;
+            ol {
+              $h: 20px;
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              overflow: hidden;
+              li + li {
+                margin-left: 5px;
+              }
+              li {
+                float: left;
+                width: $h;
+                @include h_lh($h);
+                text-align: center;
+                font-size: 12px;
+                border: 1px solid $mainColor;
+                color: $mainColor;
+                &.current {
+                  border: 1px solid #00ffff;
+                  color: #00ffff;
+                }
+              }
+            }
+          }
         }
         .bar {
           border-left: 0px none;
