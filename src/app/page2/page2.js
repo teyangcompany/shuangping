@@ -14,6 +14,8 @@ import time from "../../module/time/time";
 import echarts from "echarts";
 import pie1 from "../../module/pie1/pie1"
 
+import bar2 from "../../module/bar2/bar2"
+
 let mainBox = $("body");
 $('header', mainBox).html(header({}));
 //时间日期展示
@@ -23,7 +25,8 @@ let H, W, partH, partW = {};
 const init = () => {
     H = window.innerHeight;
     W = window.innerWidth;
-    partH = (H - 35 - 15 * 3 - 10) / 3
+    partH = (H - 35 - 15 * 3 - 10) / 3;
+    console.log(H, W, partH);
     $(".wrap", mainBox).css("height", `${partH}px`);
     $(".part1,.part2,.part3").each((i, o) => {
         let size = $(">.wrap", $(o)).length;
@@ -33,7 +36,47 @@ const init = () => {
         $(".online-total,.yygh-total").find("li").css("width", `${(partW[3] - 2) / 3}px`).css('height', `${partH - 2 - 40}px`)
     })
 }
-init();
+
+const swiper1Init = (res) => {
+    let mySwiper = new Swiper(".swiper-container", {
+        autoplay: 5000,
+        loop: true,
+        onInit: () => {
+            $(".hot-doc").each((index, o) => {
+                $(o).data("data", [
+                    {name: "丁克峰", value: 123},
+                    {name: "丁克峰", value: 945},
+                    {name: "丁克峰", value: 201},
+                    {name: "丁克峰", value: 302},
+                    {name: "丁克峰", value: 100}])
+            })
+
+            $(".hot-dept").each((index, o) => {
+                $(o).data("data", [
+                    {name: "呼吸科", value: 123},
+                    {name: "呼吸科", value: 445},
+                    {name: "呼吸科", value: 398},
+                    {name: "呼吸科", value: 675},
+                    {name: "呼吸科", value: 765}
+                ])
+            })
+        },
+        onSlideChangeEnd: (swiper) => {
+            bar2(echarts);
+            let index = (swiper.activeIndex)
+            $("#hot1 .title span").eq(3 - index).addClass('current').siblings().removeClass("current");
+            $("#hot1").find("ol li").eq(3 - index).addClass('current').siblings().removeClass("current");
+        }
+    })
+}
+
+$(document).ready(() => {
+    init();
+    swiper1Init();
+    pie1(echarts);
+    bar2(echarts);
+})
+
 
 $("#yygh-total").data("data", [
     {name: "V", text: "微信(V)", value: 400},
@@ -70,14 +113,3 @@ $("#online-week").data("data", [
     {name: "A", text: "APP(A)", value: 500},
     {name: "X", text: "线上(X)", value: 800}
 ])
-pie1(echarts);
-
-
-const swiper1Init = (res) => {
-    let mySwiper = new Swiper(".swiper-container", {
-        autoplay: 5000,
-        loop: true,
-    })
-}
-
-swiper1Init();
