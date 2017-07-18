@@ -3,8 +3,12 @@
  */
 const init = function (el, echarts, data) {
     let dom = $(el);
-    let H = (window.innerHeight - 100 - 35 - 15) / 2;
-    dom.height(H - 40 - 10 - 10 - 25);
+
+    if (!dom.css("height")) {
+        let H = (window.innerHeight - 100 - 35 - 15) / 2;
+        dom.height(H - 40 - 10 - 10 - 25);
+    }
+
     if (!data) {
         return
     }

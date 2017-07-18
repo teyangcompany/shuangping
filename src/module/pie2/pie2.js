@@ -3,6 +3,9 @@
  */
 const init = function (el, echarts, data) {
     let myChart = echarts.init(el);
+    if(!data){
+        return
+    }
     let series = [{
         type: 'pie',
         radius : '90%',
@@ -19,11 +22,7 @@ const init = function (el, echarts, data) {
                 show: false
             }
         },
-        data:[
-            {value:335, name:"线上"},
-            {value:310, name:"APP"},
-            {value:234, name:"微信"}
-        ]
+        data:data
     }];
     let option = {
         series: series

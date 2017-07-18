@@ -122,14 +122,38 @@ $("#day-reg").data("data", [
     {name: "A", text: "APP(A)", value: 80},
     {name: "X", text: "线上(X)", value: 180}
 ])
+
+$("#server_bar").data("data", [
+    {name: "浙江", value: 11623},
+    {name: "上海", value: 4745},
+    {name: "新疆", value: 200},
+    {name: "山东", value: 5300},
+    {name: "河北", value: 8400}])
+
 pie1(echarts);
 //下载量/注册量/服务量
 const swiperInit = (selector) => {
     return new Swiper(selector, {
         autoplay: 5000,//可选选项，自动滑动
         loop: true,
+        onInit: (res) => {
+            $(".reg-pie").each((index, o) => {
+                $(o).data("data", [
+                    {name: "线上", value: 123},
+                    {name: "APP", value: 445},
+                    {name: "微信", value: 200}])
+            })
+
+            $(".download-pie").each((index, o) => {
+                $(o).data("data", [
+                    {name: "IOS", value: 123},
+                    {name: "ANDROID", value: 445}
+                ])
+            })
+        },
         onSlideChangeEnd: (swiper) => {
             let index = (swiper.activeIndex)
+            pie2(echarts);
             $(".pie .title span").eq(3 - index).addClass('current').siblings().removeClass("current");
             $(selector).find("ol li").eq(3 - index).addClass('current').siblings().removeClass("current");
         }
@@ -142,9 +166,9 @@ const donwloadPartInit = function () {
     let h = H - regPartHeight - 35 - 100 - 15 - 10;
     $(".download-part>div").height(h);
     $("#swiper").height(h - 40 - 20)
-    swiperInit("#swiper");
-    pie2(echarts);
     bar1(echarts);
+    pie2(echarts);
+    swiperInit("#swiper");
 }
 setTimeout(() => {
     donwloadPartInit();
