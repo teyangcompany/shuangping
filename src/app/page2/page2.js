@@ -16,6 +16,8 @@ import pie1 from "../../module/pie1/pie1"
 
 import bar2 from "../../module/bar2/bar2"
 
+import line from "../../module/line/line"
+
 let mainBox = $("body");
 $('header', mainBox).html(header({}));
 //时间日期展示
@@ -34,11 +36,12 @@ const init = () => {
         $(">.wrap", $(o)).css("width", `${partW[size]}px`);
         $(".swiper-container").css('height', `${partH - 2 - 40}px`)
         $(".online-total,.yygh-total").find("li").css("width", `${(partW[3] - 2) / 3}px`).css('height', `${partH - 2 - 40}px`)
+        $(".yygh-line").css('height', `${partH - 2 - 40}px`)
     })
 }
 
 const swiper1Init = (res) => {
-    let mySwiper = new Swiper(".swiper-container", {
+    let mySwiper = new Swiper(".hot-swiper", {
         autoplay: 5000,
         loop: true,
         onInit: () => {
@@ -63,9 +66,22 @@ const swiper1Init = (res) => {
         },
         onSlideChangeEnd: (swiper) => {
             bar2(echarts);
-            let index = (swiper.activeIndex)
-            $("#hot1 .title span").eq(3 - index).addClass('current').siblings().removeClass("current");
-            $("#hot1").find("ol li").eq(3 - index).addClass('current').siblings().removeClass("current");
+            let index = (swiper.realIndex)
+            $("#hot1 .title span").eq(index).addClass('current').siblings().removeClass("current");
+            $("#hot1").find("ol li").eq(index).addClass('current').siblings().removeClass("current");
+        }
+    })
+}
+
+const swiper2Init = () => {
+    let mySwiper = new Swiper(".liang-swiper", {
+        autoplay: 5000,
+        loop: true,
+        onSlideChangeEnd: (swiper) => {
+            let index = (swiper.realIndex)
+
+            $("#liang .title span").eq(index).addClass('current').siblings().removeClass("current");
+            $("#liang").find("ol li").eq(index).addClass('current').siblings().removeClass("current");
         }
     })
 }
@@ -73,8 +89,10 @@ const swiper1Init = (res) => {
 $(document).ready(() => {
     init();
     swiper1Init();
+    swiper2Init();
     pie1(echarts);
     bar2(echarts);
+    line(echarts);
 })
 
 
@@ -113,3 +131,9 @@ $("#online-week").data("data", [
     {name: "A", text: "APP(A)", value: 500},
     {name: "X", text: "线上(X)", value: 800}
 ])
+
+let yyghLine = [];
+for (let i = 0; i < Math.max(5, Math.random() * 10); i++) {
+    yyghLine.push({name: `7月${i + 1}日`, value: Math.round(Math.random() * 1000)})
+}
+$("#yygh-line").data("data", yyghLine);
