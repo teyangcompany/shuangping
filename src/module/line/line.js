@@ -2,32 +2,34 @@ function init(echarts, data, el) {
     if (!data) {
         return
     }
-    ;
+    let areastyleColor = el.dataset.areastyleColor;
+    let linestyleColor = el.dataset.linestyleColor
+
+    //console.log(areastyleColor, "#color");
+
     let myChart = echarts.init(el);
     let xAxis = [], arr = [], series = [];
-    //console.log(data, "data");
-
     data.forEach((res) => {
         xAxis.push(res.name);
         arr.push(res.value)
     });
-
     series.push({
         type: "line",
+        symbol: "circle",
         symbolSize: 10,
         itemStyle: {
             normal: {
-                color: "#00ffff"
+                color: linestyleColor ? linestyleColor : "#00ffff"
             }
         },
         areaStyle: {
             normal: {
-                color: "#00a5b1"
+                color: areastyleColor ? areastyleColor : "#00a5b1"
             }
         },
         lineStyle: {
             normal: {
-                color: "#00ffff"
+                color: linestyleColor ? linestyleColor : "#00ffff"
             }
         },
         data: arr
@@ -38,6 +40,11 @@ function init(echarts, data, el) {
             type: 'value',
             splitLine: {
                 show: false
+            },
+            axisLine: {
+                lineStyle: {
+                    color: "blue"
+                }
             }
         },
         xAxis: {
@@ -50,15 +57,13 @@ function init(echarts, data, el) {
             data: xAxis
         },
         grid: {
-            top: "3%",
-            left: '3%',
+            top: "10%",
+            left: '7%',
             right: '4%',
-            bottom: '15%',
+            bottom: '17%',
         },
         series: series
     };
-
-
     myChart.setOption(option);
 }
 

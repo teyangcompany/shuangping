@@ -7,6 +7,7 @@ import $ from "../../lib/jquery-vendor";
 import "swiper";
 import "../../../static/swiper/swiper-3.4.2.min.css"
 
+import timeformat from "lmw-time-format";
 
 import header from "../public/header.ejs";
 import time from "../../module/time/time";
@@ -77,11 +78,21 @@ const swiper2Init = () => {
     let mySwiper = new Swiper(".liang-swiper", {
         autoplay: 5000,
         loop: true,
-        onSlideChangeEnd: (swiper) => {
+        onInit: function () {
+            let typeArr = ['fz', 'zz', 'hz', 'wz'];
+            typeArr.forEach((type) => {
+                let line = [];
+                for (let i = 0; i < 7; i++) {
+                    let day = timeformat(new Date().getTime() + i * 24 * 3600 * 1000, "%m月%d日");
+                    line.push({name: day, value: Math.round(Math.random() * 1000)})
+                }
+                $(".liang-" + type).data("data", line);
+            });
+        },
+        onSlideChangeStart: (swiper) => {
+            line(echarts)
             let index = (swiper.realIndex)
-
             $("#liang .title span").eq(index).addClass('current').siblings().removeClass("current");
-            $("#liang").find("ol li").eq(index).addClass('current').siblings().removeClass("current");
         }
     })
 }
@@ -134,6 +145,7 @@ $("#online-week").data("data", [
 
 let yyghLine = [];
 for (let i = 0; i < Math.max(5, Math.random() * 10); i++) {
-    yyghLine.push({name: `7月${i + 1}日`, value: Math.round(Math.random() * 1000)})
+    let day = timeformat(new Date().getTime() + i * 24 * 3600 * 1000, "%m月%d日");
+    yyghLine.push({name: day, value: Math.round(Math.random() * 1000)})
 }
 $("#yygh-line").data("data", yyghLine);
