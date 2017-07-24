@@ -13,6 +13,7 @@ const init = function (el, echarts, data) {
     }
 
     let myChart = echarts.init(el);
+    $(el).data("refresh", 0)
     let series = [], legend = [];
     let total = {
         name: 'total',
@@ -98,7 +99,10 @@ export default function (echarts) {
     $(".module-pie1").each((index, el) => {
         setInterval((res) => {
             let data = $(el).data("data");
-            init(el, echarts, data);
+            let refresh = $(el).data("refresh");
+            if (refresh && refresh == 1) {
+                init(el, echarts, data);
+            }
         }, 1000)
     })
 }

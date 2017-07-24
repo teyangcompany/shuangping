@@ -5,9 +5,11 @@ const init = function (el, echarts, data) {
     let dom = $(el);
     //dom.height(dom.parent().parent().height() - 40 - 20);
     let myChart = echarts.init(el);
+    dom.data("refresh", 0)
     if (!data) {
         return
     }
+
     let yAxis = [], arr = [], max = 0, shadow = [];
     data.sort((a, b) => {
         return a.value > b.value ? 1 : -1;
@@ -21,13 +23,13 @@ const init = function (el, echarts, data) {
     });
 
     shadow = shadow.map((item, index) => {
-        return [max + Math.round(max * 0.1), index, item];
+        return [max, index, item];
     });
 
 
     let series = [{
         type: "bar",
-        barWidth: "20%",
+        barWidth: "30%",
         barGap: "-100%",
         itemStyle: {
             normal: {
@@ -57,7 +59,7 @@ const init = function (el, echarts, data) {
     }];
     series.push({
         type: "bar",
-        barWidth: "20%",
+        barWidth: "30%",
         itemStyle: {
             normal: {
                 barBorderRadius: 7,
@@ -88,12 +90,13 @@ const init = function (el, echarts, data) {
         },
         xAxis: {
             show: false,
+            max: "dataMax",
             type: "value"
         },
         grid: {
             left: 60,
             top: 0,
-            right: 0,
+            right: 30,
             bottom: 30
         },
         series: series
@@ -105,7 +108,10 @@ export default function (echarts) {
     $(".module-bar2").each((index, el) => {
         setInterval((res) => {
             let data = $(el).data("data");
-            init(el, echarts, data);
+            let refresh = $(el).data("refresh");
+            if (refresh && refresh == 1) {
+                init(el, echarts, data);
+            }
         }, 1000)
     })
 }

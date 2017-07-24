@@ -5,15 +5,14 @@ const init = function (el, echarts, data) {
     let dom = $(el);
     dom.height(dom.parent().parent().height() - 40 - 20);
     let myChart = echarts.init(el);
+    dom.data("refresh", 0)
     if (!data) {
         return
     }
     let xAxis = [], shandow = [], arr = [], max = 0;
     data.sort((a, b) => {
-
         return a.value > b.value ? -1 : 1;
     })
-
     data.forEach((res, index) => {
         xAxis.push(res.name);
         arr.push(res.value);
@@ -106,7 +105,10 @@ export default function (echarts) {
     $(".module-bar1").each((index, el) => {
         setInterval((res) => {
             let data = $(el).data("data");
-            init(el, echarts, data);
+            let refresh = $(el).data("refresh");
+            if (refresh && refresh == 1) {
+                init(el, echarts, data);
+            }
         }, 1000)
     })
 }

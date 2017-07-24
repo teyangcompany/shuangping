@@ -2,12 +2,15 @@ function init(echarts, data, el) {
     if (!data) {
         return
     }
+
+
     let areastyleColor = el.dataset.areastyleColor;
     let linestyleColor = el.dataset.linestyleColor
 
-    //console.log(areastyleColor, "#color");
 
     let myChart = echarts.init(el);
+    $(el).data("refresh", 0);
+
     let xAxis = [], arr = [], series = [];
     data.forEach((res) => {
         xAxis.push(res.name);
@@ -72,7 +75,10 @@ export default function (echarts) {
     $(".module-line").each((i, o) => {
         setInterval((res) => {
             let data = $(o).data("data")
-            init(echarts, data, o);
+            let refresh = $(o).data("refresh");
+            if (refresh && refresh == 1) {
+                init(echarts, data, o);
+            }
         }, 1000)
 
     })
