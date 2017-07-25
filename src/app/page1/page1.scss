@@ -50,7 +50,7 @@
         }
       }
       .download-part {
-        margin-top: 15px;
+        margin-top: 10px;
         position: relative;
         .line {
           position: absolute;
@@ -63,8 +63,8 @@
         .pie {
           border-right: 0px none;
           width: 40%;
-          .title{
-            .current{
+          .title {
+            .current {
               color: #00ffff;
             }
           }
@@ -104,8 +104,9 @@
     }
   }
 }
-#slide{
-  margin: 15px auto 0;
+
+#slide {
+  margin: 10px auto 0;
   overflow: hidden;
   ul {
     li {
@@ -122,4 +123,11 @@
       }
     }
   }
+}
+
+footer {
+  line-height: 30px;
+  text-align: center;
+  color: white;
+  font-size: 14px;
 }

@@ -37,14 +37,14 @@ setInterval((res) => {
 
 
 const H = parseInt(window.innerHeight);
-const partH = (H - 35 - 100 - 15 - 15) / 2;
+const partH = (H - 35 - 100 - 10 - 30) / 2;
 
 const init = (res) => {
     $(".charts>div").css("height", `${partH}px`)
     $(".charts .wrap .container").css("height", `${partH - 40 - 2}px`);
     $(".pielist ul li").css("height", `${partH - 40 - 2 - 25 - 20}px`);
-    $("#map").css("height", `${(H - 35 - 100 - 15 - 15) * 0.7}px`)
-    $("#slide").css("height", `${(H - 35 - 100 - 15 - 15) * 0.3}px`)
+    $("#map").css("height", `${(partH * 2) * 0.7}px`)
+    $("#slide").css("height", `${(partH * 2) * 0.3}px`)
     $("#swiper,#server_bar").css("height", `${partH - 40 - 2 - 20}px`)
     $("#slide").css("width", `${window.innerWidth / 4}px`)
 }
@@ -153,7 +153,7 @@ const getGPS = (place) => {
     })
 }
 
-let area = ["浙江省", "山东省", "新疆维吾尔族自治区", "上海市", "四川省","江苏省", "广东省", "江西省", "北京市", "福建省"];
+let area = ["浙江省", "山东省", "新疆维吾尔族自治区", "上海市", "四川省", "江苏省", "广东省", "江西省", "北京市", "福建省"];
 
 function getLoc() {
     getGPS(area[Math.floor(area.length * Math.random())])

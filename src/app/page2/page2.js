@@ -32,7 +32,7 @@ let H, W, partH, partW = {};
 const init = () => {
     H = window.innerHeight;
     W = window.innerWidth;
-    partH = (H - 35 - 15 * 3 - 10) / 3;
+    partH = (H - 35 - 10 * 3 - 30) / 3;
     $(".wrap", mainBox).css("height", `${partH}px`);
     $(".part1,.part2,.part3").each((i, o) => {
         let size = $(">.wrap", $(o)).length;
