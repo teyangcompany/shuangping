@@ -104,3 +104,22 @@
     }
   }
 }
+#slide{
+  margin: 15px auto 0;
+  overflow: hidden;
+  ul {
+    li {
+      color: white;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      span {
+        padding-left: 5px;
+        font-size: 14px;
+        &.dept, &.doc {
+          color: $mainColor;
+        }
+      }
+    }
+  }
+}

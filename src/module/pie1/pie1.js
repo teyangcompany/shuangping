@@ -32,6 +32,8 @@ const init = function (el, echarts, data) {
         let shengyu = $.extend({}, total, {
             value: total.value - d.value
         });
+        let width = $(el).data("width") ? $(el).data("width") : 1;
+        width = parseFloat(width)
         series.push({
             type: "pie",
             startAngle: i == 0 ? 125 : i == 1 ? 115 : 120,
@@ -49,7 +51,7 @@ const init = function (el, echarts, data) {
                     show: false
                 }
             },
-            radius: [`${100 - (i + 2) * 10}%`, `${100 - (i + 1) * 10}%`],
+            radius: [`${100 - (i + width + 1) * 9}%`, `${100 - (i + width) * 9}%`],
             data: [$.extend({}, d, {
                 name: `${d.name}:${d.value}`,
                 itemStyle: {
@@ -66,10 +68,10 @@ const init = function (el, echarts, data) {
         title: {
             text: dom.attr("title"),
             textAlign: "center",
-            bottom: 0,
-            z: 8,
-            zlevel: 6,
+            z: 10,
+            zlevel: 8,
             left: "50%",
+            bottom: 0,
             textStyle: {
                 color: "#00ffff",
                 fontSize: 14
@@ -81,8 +83,8 @@ const init = function (el, echarts, data) {
             top: "center",
             itemWidth: 15,
             itemHeight: 5,
-            zlevel: 8,
-            z: 10,
+            zlevel: 6,
+            z: 8,
             textStyle: {
                 color: "#ffffff",
                 fontSize: 12
@@ -101,6 +103,7 @@ export default function (echarts) {
             let data = $(el).data("data");
             let refresh = $(el).data("refresh");
             if (refresh && refresh == 1) {
+                console.log(refresh, data)
                 init(el, echarts, data);
             }
         }, 1000)

@@ -3,17 +3,18 @@
  */
 const init = function (el, echarts, data) {
     let myChart = echarts.init(el);
-    if(!data){
+    $(el).data("refresh", 0);
+    if (!data) {
         return
     }
     let series = [{
         type: 'pie',
-        radius : '90%',
+        radius: '90%',
         center: ['50%', '50%'],
-        color:["#00ffff","#2280fb","#fa9d09"],
+        color: ["#00ffff", "#2280fb", "#fa9d09"],
         label: {
             normal: {
-                formatter:"{b}\n{d}%",
+                formatter: "{b}\n{d}%",
                 position: 'inner'
             }
         },
@@ -22,20 +23,22 @@ const init = function (el, echarts, data) {
                 show: false
             }
         },
-        data:data
+        data: data
     }];
     let option = {
         series: series
     }
     myChart.setOption(option);
-}
+};
 
-
-export default function (echarts) {
+export  default function (echarts) {
     $(".module-pie2").each((index, el) => {
         setInterval((res) => {
             let data = $(el).data("data");
-            init(el, echarts, data);
+            let refresh = $(el).data("refresh");
+            if (refresh && refresh == 1) {
+                init(el, echarts, data);
+            }
         }, 1000)
     })
 }

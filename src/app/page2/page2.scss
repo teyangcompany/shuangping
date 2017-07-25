@@ -1,12 +1,13 @@
 @import "../../common/common";
-.swiper-container{
-  >ol{
-    $h:20px;
+
+.swiper-container {
+  > ol {
+    $h: 20px;
     position: absolute;
     bottom: 10px;
     right: 10px;
     overflow: hidden;
-    li{
+    li {
       margin-left: 5px;
       float: left;
       width: $h;
@@ -23,12 +24,11 @@
   }
 }
 
-
 .main {
   .part1, .part2, .part3 {
     margin-top: 15px;
   }
-  .wrap+.wrap{
+  .wrap + .wrap {
     margin-left: 15px;
   }
 ;
@@ -36,15 +36,34 @@
     background-color: $bgColor;
     border: 1px solid $mainColor;
     overflow: hidden;
-    .title{
+    .title {
       overflow: hidden;
       border-bottom: 1px solid $mainColor;
       @include h_lh(40px);
       padding-left: 15px;
       color: $mainColor;
       font-size: 16px;
-      span.current{
+      span.current {
         color: #00ffff;
+      }
+    }
+  }
+}
+
+#slide-sszxqk,#slide-sspjqk {
+  overflow: hidden;
+  ul {
+    li {
+      color: white;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      span {
+        padding-left: 5px;
+        font-size: 14px;
+        &.dept, &.doc {
+          color: $mainColor;
+        }
       }
     }
   }

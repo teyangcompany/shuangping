@@ -20,6 +20,7 @@ import bar2 from "../../module/bar2/bar2"
 import line from "../../module/line/line"
 
 import sszxqkTpl from "./tpl/sszxqk.ejs"
+import sspjqkTpl from "./tpl/sspjqk.ejs"
 import slide from "../../module/slide/slide"
 
 let mainBox = $("body");
@@ -178,17 +179,27 @@ for (let i = 0; i < Math.max(5, Math.random() * 10); i++) {
 $("#yygh-line").data("refresh", 1);
 $("#yygh-line").data("data", yyghLine);
 
-let sszxqkArr = [];
-for (let i = 0; i < 5; i++) {
-    let str = "请问日体育哦派阿萨德法国红酒快乐自行车卖你吧"
-    let time = timeformat(new Date().getTime() + i * 60 * 1000, "%H：%");
-    sszxqkArr.push({
-        time: time,
-        name: str.substr(Math.floor(Math.random() * str.length), 1),
-        hos: ["浙江大学医学院附属第二医院", "长兴医院"][Math.floor(Math.random() * 2)],
-        dept: ["呼吸", "消化", "内分泌"][Math.floor(Math.random() * 3)]+"科",
-        doc: str.substr(Math.floor(Math.random() * str.length), 1),
-        content: "发起咨询:" + str.substr(Math.floor(Math.random() * str.length))
-    })
+const getData = (res) => {
+    let arr = [];
+    for (let i = 0; i < 5; i++) {
+        let str = "请问日体育哦派阿萨德法国红酒快乐自行车卖你吧"
+        let time = timeformat(new Date().getTime() + i * 60 * 1000, "%H：%M");
+        arr.push({
+            time: time,
+            name: str.substr(Math.floor(Math.random() * str.length), 1),
+            hos: ["浙医二院", "长兴医院"][Math.floor(Math.random() * 2)],
+            dept: ["呼吸", "消化", "内分泌"][Math.floor(Math.random() * 3)] + "科",
+            doc: str.substr(Math.floor(Math.random() * str.length), 3),
+            content: str.substr(Math.floor(Math.random() * str.length))
+        })
+    }
+    return arr;
 }
-console.log(sszxqkArr);
+
+$("#slide-sszxqk").data("refresh", 1);
+$("#slide-sszxqk").data("data", getData())
+slide("#slide-sszxqk", sszxqkTpl);
+
+$("#slide-sspjqk").data("refresh", 1);
+$("#slide-sspjqk").data("data", getData())
+slide("#slide-sspjqk", sspjqkTpl);
