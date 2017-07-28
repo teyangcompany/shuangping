@@ -24,16 +24,17 @@ entryDir.forEach((res) => {
 });
 
 
+console.log("NODE_ENV",process.env.NODE_ENV);
 module.exports = {
     entry: entryObj,
     output: {
         path: resolve("dist"),
-        publicPath: "/",
+        publicPath: process.env.NODE_ENV === "production" ? "./" : "/",
         filename: "[name].[hash].js"
     },
-    resolve:{
-        alias:{
-            "swiper":resolve("./static/swiper/swiper-3.4.2.jquery.min.js")
+    resolve: {
+        alias: {
+            "swiper": resolve("./static/swiper/swiper-3.4.2.jquery.min.js")
         }
     },
     module: {
@@ -61,18 +62,18 @@ module.exports = {
                 }
             },
             {
-                test:/\.(png|jpg|gif)$/,
-                use:[{
-                    loader:'url-loader',
-                    options:{
-                        limit:8192,
-                        name:"static/img/[name].[ext]?[hash]"
+                test: /\.(png|jpg|gif)$/,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 8192,
+                        name: "static/img/[name].[ext]?[hash]"
                     }
                 }]
             },
             {
-                test:/\.ejs$/,
-                use:[
+                test: /\.ejs$/,
+                use: [
                     {
                         loader: "ejs-loader"
                     }
