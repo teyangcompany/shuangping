@@ -6,25 +6,52 @@ const path = require("path");
 const glob = require("glob");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const extractCSS = new ExtractTextPlugin("static/css/commons.css");
+const extractSASS = new ExtractTextPlugin("static/css/style.css");
+
+const nodeArgv = require("lmw-node-argv");
+const argvs = nodeArgv();
+/*根据argvs["publicPath"]打包生成不同的文件绝对路径*/
+
 const resolve = function (p) {
     return path.resolve(__dirname, "../", p);
 }
 
+const cssLoader = function (loads, extractFun) {
+    let loaders = ["style-loader"];
+    if (process.env.NODE_ENV === "production") {
+        return extractFun.extract({
+            fallback: "style-loader",
+            use: loads
+        });
+    } else {
+        return loaders.concat(loads);
+    }
+
+}
+
+
 let entryDir = glob.sync(resolve('src/app/**/*.js'))
 let entryObj = {};
-let htmls = [];
+let htmls = [], plugins = [];
+if (process.env.NODE_ENV === "production") {
+    plugins.push(new webpack.optimize.CommonsChunkPlugin({
+        name: "commons",
+        filename: "commons.js"
+    }));
+    plugins.push(extractCSS);
+    plugins.push(extractSASS);
+}
 entryDir.forEach((res) => {
     let key = path.basename(res, '.js');
     entryObj[key] = resolve(res);
     htmls.push(new HtmlWebpackPlugin({
         filename: `${key}.html`,
         template: res.replace(".js", ".ejs"),
-        chunks: [key]
+        chunks: process.env.NODE_ENV === "production" ? ["commons", key] : [key]
     }))
 });
-
-
-console.log("NODE_ENV",process.env.NODE_ENV);
 module.exports = {
     entry: entryObj,
     output: {
@@ -41,15 +68,11 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                use: [{loader: "style-loader"}, {loader: "css-loader"}]
+                use: cssLoader(["css-loader"], extractCSS)
             },
             {
                 test: /\.scss$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader'
-                ]
+                use: cssLoader(["css-loader", "sass-loader"], extractSASS)
             },
             {
                 test: /\.js$/,
@@ -67,7 +90,8 @@ module.exports = {
                     loader: 'url-loader',
                     options: {
                         limit: 8192,
-                        name: "static/img/[name].[ext]?[hash]"
+                        outputPath: "static/img/",
+                        name: "[name].[ext]?[hash]"
                     }
                 }]
             },
@@ -83,6 +107,7 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
-        ...htmls
+        ...htmls,
+        ...plugins,
     ]
 }
