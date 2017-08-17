@@ -10,9 +10,6 @@ const init = function (el, echarts, data) {
         return
     }
     let xAxis = [], shandow = [], arr = [], max = 0;
-    data.sort((a, b) => {
-        return a.value > b.value ? -1 : 1;
-    })
     data.forEach((res, index) => {
         xAxis.push(res.name);
         arr.push(res.value);

@@ -9,29 +9,11 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const extractCSS = new ExtractTextPlugin("static/css/commons.css");
 const extractSASS = new ExtractTextPlugin("static/css/style.css");
-
-const nodeArgv = require("lmw-node-argv");
-const argvs = nodeArgv();
-/*根据argvs["publicPath"]打包生成不同的文件绝对路径*/
+const {cssLoader, getPublicPath} = require("./util")
 
 const resolve = function (p) {
     return path.resolve(__dirname, "../", p);
 }
-
-const cssLoader = function (loads, extractFun) {
-    let loaders = ["style-loader"];
-    if (process.env.NODE_ENV === "production") {
-        return extractFun.extract({
-            fallback: "style-loader",
-            use: loads
-        });
-    } else {
-        return loaders.concat(loads);
-    }
-
-}
-
-
 let entryDir = glob.sync(resolve('src/app/**/*.js'))
 let entryObj = {};
 let htmls = [], plugins = [];
@@ -56,7 +38,7 @@ module.exports = {
     entry: entryObj,
     output: {
         path: resolve("dist"),
-        publicPath: process.env.NODE_ENV === "production" ? "./" : "/",
+        publicPath: getPublicPath(),
         filename: "[name].[hash].js"
     },
     resolve: {
@@ -80,7 +62,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['env']
+                        presets: ["stage-3", 'env']
                     }
                 }
             },
@@ -91,17 +73,14 @@ module.exports = {
                     options: {
                         limit: 8192,
                         outputPath: "static/img/",
+                        publicPath: getPublicPath(),
                         name: "[name].[ext]?[hash]"
                     }
                 }]
             },
             {
                 test: /\.ejs$/,
-                use: [
-                    {
-                        loader: "ejs-loader"
-                    }
-                ]
+                use: ["ejs-compiled-loader"]
             }
         ]
     },

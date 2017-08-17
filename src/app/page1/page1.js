@@ -3,6 +3,7 @@
  */
 import "./page1.scss";
 import $ from "../../lib/jquery-vendor";
+import api from "../../lib/api"
 
 import header from "../public/header.ejs";
 import time from "../../module/time/time";
@@ -20,7 +21,6 @@ import bar1 from "../../module/bar1/bar1"
 import map from "../../module/map/map"
 import slide from "../../module/slide/slide"
 import ssyyqkTpl from "./tpl/ssyyqk.ejs"
-import timeformat from "lmw-time-format";
 
 let mainBox = $("body");
 $('header', mainBox).html(header({}));
@@ -28,25 +28,22 @@ $('header', mainBox).html(header({}));
 time();
 //数字滚动展示
 number()
-//模拟数据
-setInterval((res) => {
-    let t = $("#user_total", mainBox).attr("total");
-    t = parseInt(t) + Math.round(Math.random() * 1000);
-    $("#user_total", mainBox).attr("total", t);
-}, 5000)
-
 
 const H = parseInt(window.innerHeight);
 const partH = (H - 35 - 100 - 10 - 30) / 2;
+const partW = window.innerWidth / 2;
 
 const init = (res) => {
     $(".charts>div").css("height", `${partH}px`)
     $(".charts .wrap .container").css("height", `${partH - 40 - 2}px`);
     $(".pielist ul li").css("height", `${partH - 40 - 2 - 25 - 20}px`);
-    $("#map").css("height", `${(partH * 2) * 0.7}px`)
-    $("#slide").css("height", `${(partH * 2) * 0.3}px`)
+    $("#map").css("height", `${(H - 35 - 100 - 30)}px`)
+    /*$("#slide").css("height", `${(partH * 2) * 0.3}px`)*/
     $("#swiper,#server_bar").css("height", `${partH - 40 - 2 - 20}px`)
-    $("#slide").css("width", `${window.innerWidth / 4}px`)
+    /*$("#slide").css("width", `${window.innerWidth / 4}px`)*/
+    $("#floatslide").css("width", `${300 / 683 * partW}px`)
+        .css("height", `${(300 / 683 * partW) * 0.6}px`)
+        .css("left", `${20 / 683 * partW}px`);
 }
 
 const swiper1Init = (res) => {
@@ -120,30 +117,6 @@ $("#day-reg").data("data", )*/
     {name: "山东", value: 5300},
     {name: "河北", value: 8400}])*/
 
-
-const getData = function () {
-    return [
-        {name: "V", text: "微信(V)", value: Math.round(Math.random() * 1000)},
-        {name: "A", text: "APP(A)", value: Math.round(Math.random() * 1000)},
-        {name: "X", text: "线上(X)", value: Math.round(Math.random() * 1000)}
-    ]
-};
-
-["total", "month", "week", "day"].forEach((res) => {
-    $(`#${res}-reg`).data("refresh", 1)
-    $(`#${res}-reg`).data("width", 2.5);
-    $(`#${res}-reg`).data("data", getData())
-})
-
-$("#server_bar").data("refresh", 1);
-$("#server_bar").data("data", [
-    {name: "浙江", value: Math.round(Math.random() * 10000)},
-    {name: "上海", value: Math.round(Math.random() * 10000)},
-    {name: "新疆", value: Math.round(Math.random() * 10000)},
-    {name: "山东", value: Math.round(Math.random() * 10000)},
-    {name: "河北", value: Math.round(Math.random() * 10000)}])
-
-
 const getGPS = (place) => {
     let url = `//api.map.baidu.com/geocoder/v2/?address=${place}&output=json&ak=ygxQc0Ydvnc33iCdP8LcR8kc&callback=?`
     return $.getJSON(url).then(function (response) {
@@ -153,42 +126,115 @@ const getGPS = (place) => {
     })
 }
 
-let area = ["浙江省", "山东省", "新疆维吾尔族自治区", "上海市", "四川省", "江苏省", "广东省", "江西省", "北京市", "福建省"];
 
-function getLoc() {
-    getGPS(area[Math.floor(area.length * Math.random())])
+const getData = function () {
+    return [
+        {name: "V", text: "微信(V)", value: Math.round(Math.random() * 1000)},
+        {name: "A", text: "APP(A)", value: Math.round(Math.random() * 1000)},
+        {name: "X", text: "线上(X)", value: Math.round(Math.random() * 1000)}
+    ]
+};
+//数据统计
+api("nethos.demo.total.count", {}).then((res) => {
+    if (res.code == 0) {
+        $("#user_total", mainBox).attr("total", res.obj.registerCount);
+        $("#server_total", mainBox).attr("total", res.obj.serviceCount);
+    }
+});
+api("nethos.demo.area.count", {}).then((res) => {
+    console.log("data1", res);
+    /*地图数据*/
+    //let area = ["浙江省", "山东省", "新疆维吾尔族自治区", "上海市", "四川省", "江苏省", "广东省", "江西省", "北京市", "福建省"];
+    let area = res.obj.provinceCountList;
+    getLoc(area);
+
+    /*服务量按地区排序*/
+    let cityServiceCountList = res.obj.cityServiceCountList;
+    cityServiceCountList = cityServiceCountList.map((city) => {
+        city.name = city.cityName
+        city.value = city.serviceCount
+        return city
+    });
+    let qitaIndex = cityServiceCountList.findIndex((city) => {
+        return city.name == "其他"
+    })
+    let qitaData = cityServiceCountList.splice(qitaIndex, 1);
+    //console.log(qitaData);
+    cityServiceCountList.sort((a, b) => {
+        return b.value - a.value
+    });
+    $("#server_bar").data("refresh", 1);
+    $("#server_bar").data("data", cityServiceCountList.concat(qitaData))
+
+    /*注册用户数四个维度统计*/
+    /*let clientRegisterMonthCount = res.obj.clientRegisterMonthCount
+    let clientRegisterTodayCount = res.obj.clientRegisterTodayCount
+    let clientRegisterTotalCount = res.obj.clientRegisterTotalCount
+    let clientRegisterWeekCount = res.obj.clientRegisterWeekCount*/
+    let fields = ["wechatRegister-V", "appRegister-A", "webRegister-X"]
+    let regDiv = ["total", "month", "week", "today"];
+    regDiv.forEach((id) => {
+        let key = `clientRegister${id.substr(0, 1).toUpperCase() + id.substr(1)}Count`
+        let data = [];
+        fields.forEach((fields) => {
+            let arr = fields.split("-");
+            data.push({
+                name: arr[1],
+                value: parseInt(res.obj[key][arr[0]])
+            });
+        });
+        $(`#${id}-reg`).data("refresh", 1)
+        $(`#${id}-reg`).data("width", 2.5);
+        $(`#${id}-reg`).data("data", data)
+    })
+
+
+})
+api("nethos.demo.bookorder.list", {}).then((res) => {
+    console.log("data2", res);
+    /*最近预约记录*/
+    let bookOrderList = res.obj.bookOrderList;
+    bookOrderList = bookOrderList.map((book) => {
+        book.time = book.bookTime;
+        book.name = book.patientName;
+        book.dept = book.deptName;
+        book.hos = book.hosName.replace("浙江大学医学院附属第二医院", "浙医二院");
+        book.doc = book.docName
+        book.content = ""
+        return book;
+    })
+    $("#floatslide").data("refresh", 1);
+    $("#floatslide").data("data", bookOrderList)
+    slide("#floatslide", ssyyqkTpl);
+})
+//模拟数据
+/*setInterval((res) => {
+    let t = $("#user_total", mainBox).attr("total");
+    t = parseInt(t) + Math.round(Math.random() * 1000);
+    $("#user_total", mainBox).attr("total", t);
+}, 5000)*/
+
+/*let regDiv = ["total", "month", "week", "today"];
+regDiv.forEach((res) => {
+    $(`#${res}-reg`).data("refresh", 1)
+    $(`#${res}-reg`).data("width", 2.5);
+    $(`#${res}-reg`).data("data", getData())
+})*/
+
+
+function getLoc(area) {
+    let place = area[Math.floor(area.length * Math.random())]
+    getGPS(place.provinceName)
         .then(function (loc) {
             $("#map").data("refresh", 1)
             $("#map").data("data", [{
                 name: loc.name,
-                value: [loc.location.lng, loc.location.lat, Math.round(Math.random() * 1000), Math.round(Math.random() * 1000), Math.round(Math.random() * 1000)]
+                value: [loc.location.lng, loc.location.lat, place.downLoadCount, place.registerCount, place.serviceCount]
             }]);
-            setTimeout((res) => {
-                getLoc();
+            setTimeout(() => {
+                getLoc(area);
             }, 5000)
         })
 
 }
 
-getLoc();
-
-const getData2 = (res) => {
-    let arr = [];
-    for (let i = 0; i < 5; i++) {
-        let str = "请问日体育哦派阿萨德法国红酒快乐自行车卖你吧"
-        let time = timeformat(new Date().getTime() + i * 60 * 1000, "%H：%M");
-        arr.push({
-            time: time,
-            name: str.substr(Math.floor(Math.random() * str.length), 1),
-            hos: ["浙医二院", "长兴医院"][Math.floor(Math.random() * 2)],
-            dept: ["呼吸", "消化", "内分泌"][Math.floor(Math.random() * 3)] + "科",
-            doc: str.substr(Math.floor(Math.random() * str.length), 3),
-            content: str.substr(Math.floor(Math.random() * str.length))
-        })
-    }
-    return arr;
-}
-
-$("#slide").data("refresh", 1);
-$("#slide").data("data", getData2())
-slide("#slide", ssyyqkTpl);

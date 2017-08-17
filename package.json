@@ -22,11 +22,14 @@
   },
   "homepage": "https://github.com/teyangcompany/shuangping#readme",
   "devDependencies": {
+    "axios": "^0.16.2",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
     "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-3": "^6.24.1",
     "clean-webpack-plugin": "^0.1.16",
     "css-loader": "^0.28.4",
+    "ejs-compiled-loader": "^1.1.0",
     "ejs-loader": "^0.3.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
@@ -43,6 +46,7 @@
     "webpack-dev-server": "^2.5.1"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "echarts": "^3.6.2",
     "lmw-time-format": "^1.0.1",
     "webpack-merge": "^4.1.0"

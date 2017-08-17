@@ -15,7 +15,7 @@ const init = function (el, data, tplFun) {
     $("ul li", $(el)).css("height", `${parseInt(h) / 5}px`);
 
     if (timer) {
-        return
+        clearInterval(timer);
     }
 
     //console.log($(el).find("ul"));
@@ -26,12 +26,20 @@ const init = function (el, data, tplFun) {
             pos = 0
         }
         el.dataset.pos = pos;
-        $(el).find("ul").css("transform", `translate(0px,${0 - pos}px)`)
+        $(el).find("ul").css("transform", `translate(0px,${0 - pos}px)`);
+        $(el).find("ul li").each((index, li) => {
+            let top = $(li).position().top;
+            let progress = (top) / (36 * 3);
+            if (top > 36 * 3) {
+                $(li).css("opacity", 1)
+            } else {
+                $(li).css("opacity", progress.toFixed(2))
+            }
+        })
     }, 50)
 }
 export default function (selector, tplFun) {
     let el = $(selector)[0];
-    console.log(el);
     setInterval(function () {
         let data = $(el).data("data")
         let refresh = $(el).data("refresh");

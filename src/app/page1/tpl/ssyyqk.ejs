@@ -2,8 +2,8 @@
     <% for(var i = 0;i < list.length;i++){ %>
     <% var d = list[i] %>
     <li>
-        <span><%= d.time %></span>
-        <span><%= d.name %>**</span>
+        <span><%= d.time.substr(5) %></span>
+        <span><%= d.name.substr(0, 1) %>**</span>
         <span><%= d.hos %></span>
         <span class="dept"><%= d.dept %></span>
         <span class="doc"><%= d.doc %></span>

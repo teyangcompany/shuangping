@@ -10,6 +10,21 @@ const init = function (el, echarts, data) {
         return
     }
 
+    let graphic = [], grid = {
+        left: 70,
+        top: 0,
+        right: 35,
+        bottom: 30
+    };
+
+    if (dom.data("grid")) {
+        grid = dom.data("grid");
+    }
+    if (dom.data("graphic")) {
+        graphic = dom.data("graphic");
+    }
+
+
     let yAxis = [], arr = [], max = 0, shadow = [];
     data.sort((a, b) => {
         return a.value > b.value ? 1 : -1;
@@ -93,12 +108,8 @@ const init = function (el, echarts, data) {
             max: "dataMax",
             type: "value"
         },
-        grid: {
-            left: 60,
-            top: 0,
-            right: 30,
-            bottom: 30
-        },
+        grid: grid,
+        graphic: graphic,
         series: series
     })
 }

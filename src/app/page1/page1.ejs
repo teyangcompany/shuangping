@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>运营数据</title>
+    <% include src/app/public/js.ejs %>
 </head>
 <body>
 <header></header>
@@ -18,7 +19,8 @@
     <div class="oh data">
         <div class="fl map">
             <div id="map" class="module-map"></div>
-            <div id="slide"></div>
+            <div id="floatslide"></div>
+            <!--<div id="slide"></div>-->
         </div>
         <div class="fr charts">
             <div class="wrap reg-part">
@@ -32,7 +34,7 @@
                             <li title="总数" class="module-pie1" id="total-reg"></li>
                             <li title="本月新增" class="module-pie1" id="month-reg"></li>
                             <li title="本周新增" class="module-pie1" id="week-reg"></li>
-                            <li title="今日新增" class="module-pie1" id="day-reg"></li>
+                            <li title="今日新增" class="module-pie1" id="today-reg"></li>
                         </ul>
                     </div>
                 </div>

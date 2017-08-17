@@ -39,7 +39,7 @@ const init = function (el, echarts, data) {
             label: {
                 normal: {
                     formatter: (params) => {
-                        return `${params.name}\n\n下载量：${params.data.value[2]}\n\n下载量：${params.data.value[3]}\n\n下载量：${params.data.value[4]}`
+                        return `${params.name}\n\n下载量：${params.data.value[2]}\n\n注册量：${params.data.value[3]}\n\n服务量：${params.data.value[4]}`
                     },
                     position: 'right',
                     show: true,

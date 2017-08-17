@@ -6,20 +6,37 @@ function init(echarts, data, el) {
 
     let areastyleColor = el.dataset.areastyleColor;
     let linestyleColor = el.dataset.linestyleColor
-
-
     let myChart = echarts.init(el);
     $(el).data("refresh", 0);
 
-    let xAxis = [], arr = [], series = [];
+    let xAxis = [], arr = [], series = [], markPointData = [];
     data.forEach((res) => {
         xAxis.push(res.name);
         arr.push(res.value)
+        markPointData.push({
+            coord: [`${res.name}`, `${res.value}`]
+        });
     });
     series.push({
         type: "line",
         symbol: "circle",
         symbolSize: 10,
+        markLine: {
+            data: [
+                {type: 'max', name: '平均值'}
+            ]
+        },
+        markPoint: {
+            symbol: "circle",
+            symbolSize: 10,
+            label: {
+                normal: {
+                    show: true,
+                    position: "top"
+                }
+            },
+            data: markPointData
+        },
         itemStyle: {
             normal: {
                 color: linestyleColor ? linestyleColor : "#00ffff"
@@ -46,7 +63,7 @@ function init(echarts, data, el) {
             },
             axisLine: {
                 lineStyle: {
-                    color: "blue"
+                    color: "#075ba7"
                 }
             }
         },
@@ -54,13 +71,13 @@ function init(echarts, data, el) {
             type: "category",
             axisLine: {
                 lineStyle: {
-                    color: "blue"
+                    color: "#075ba7"
                 }
             },
             data: xAxis
         },
         grid: {
-            top: "10%",
+            top: "15%",
             left: '7%',
             right: '4%',
             bottom: '17%',

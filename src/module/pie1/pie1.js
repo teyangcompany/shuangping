@@ -103,7 +103,6 @@ export default function (echarts) {
             let data = $(el).data("data");
             let refresh = $(el).data("refresh");
             if (refresh && refresh == 1) {
-                console.log(refresh, data)
                 init(el, echarts, data);
             }
         }, 1000)
