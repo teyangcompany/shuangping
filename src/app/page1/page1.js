@@ -65,7 +65,7 @@ const swiper1Init = (res) => {
             $(".download-pie").each((index, o) => {
                 $(o).data("data", [
                     {name: "IOS", value: 123},
-                    {name: "ANDROID", value: 445}
+                    {name: "android", value: 445}
                 ])
             })
         },
@@ -118,8 +118,9 @@ $("#day-reg").data("data", )*/
     {name: "河北", value: 8400}])*/
 
 const getGPS = (place) => {
-    let url = `//api.map.baidu.com/geocoder/v2/?address=${place}&output=json&ak=ygxQc0Ydvnc33iCdP8LcR8kc&callback=?`
+    let url = `//api.map.baidu.com/geocoder/v2/?address=${place}&output=json&ak=jMfSNIGPYol5THznNtajPjFQ4tszZlao&callback=?`
     return $.getJSON(url).then(function (response) {
+        console.log(response);
         if (response.status == 0) {
             return Object.assign({}, response.result, {name: place});
         }
@@ -229,11 +230,20 @@ function getLoc(area) {
             $("#map").data("refresh", 1)
             $("#map").data("data", [{
                 name: loc.name,
-                value: [loc.location.lng, loc.location.lat, place.downLoadCount, place.registerCount, place.serviceCount]
+                value: [loc.location.lng, loc.location.lat, place.downLoadCount, place.registerCount, place.serviceCount],
+                selected: true
             }]);
             setTimeout(() => {
                 getLoc(area);
             }, 5000)
+        })
+        .fail((res) => {
+            $("#map").data("refresh", 1)
+            $("#map").data("data", [{
+                name: place.provinceName,
+                value: [120.162847, 30.280787, place.downLoadCount, place.registerCount, place.serviceCount],
+                selected: true
+            }]);
         })
 
 }

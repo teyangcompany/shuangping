@@ -8,7 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const extractCSS = new ExtractTextPlugin("static/css/commons.css");
-const extractSASS = new ExtractTextPlugin("static/css/style.css");
+const extractSASS = new ExtractTextPlugin("static/css/[name].[hash].css");
 const {cssLoader, getPublicPath} = require("./util")
 
 const resolve = function (p) {
