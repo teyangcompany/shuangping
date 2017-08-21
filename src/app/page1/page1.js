@@ -3,7 +3,9 @@
  */
 import "./page1.scss";
 import $ from "../../lib/jquery-vendor";
-import api from "../../lib/api"
+import api from "../../lib/api";
+import provincesArr from "china-province-info";
+
 
 import header from "../public/header.ejs";
 import time from "../../module/time/time";
@@ -118,13 +120,10 @@ $("#day-reg").data("data", )*/
     {name: "河北", value: 8400}])*/
 
 const getGPS = (place) => {
-    let url = `//api.map.baidu.com/geocoder/v2/?address=${place}&output=json&ak=jMfSNIGPYol5THznNtajPjFQ4tszZlao&callback=?`
-    return $.getJSON(url).then(function (response) {
-        console.log(response);
-        if (response.status == 0) {
-            return Object.assign({}, response.result, {name: place});
-        }
+    let index = provincesArr.findIndex((res) => {
+        return res.province.indexOf(place) >= 0
     })
+    return provincesArr[index];
 }
 
 
@@ -225,26 +224,15 @@ regDiv.forEach((res) => {
 
 function getLoc(area) {
     let place = area[Math.floor(area.length * Math.random())]
-    getGPS(place.provinceName)
-        .then(function (loc) {
-            $("#map").data("refresh", 1)
-            $("#map").data("data", [{
-                name: loc.name,
-                value: [loc.location.lng, loc.location.lat, place.downLoadCount, place.registerCount, place.serviceCount],
-                selected: true
-            }]);
-            setTimeout(() => {
-                getLoc(area);
-            }, 5000)
-        })
-        .fail((res) => {
-            $("#map").data("refresh", 1)
-            $("#map").data("data", [{
-                name: place.provinceName,
-                value: [120.162847, 30.280787, place.downLoadCount, place.registerCount, place.serviceCount],
-                selected: true
-            }]);
-        })
-
+    let loc = getGPS(place.provinceName)
+    $("#map").data("refresh", 1)
+    $("#map").data("data", [{
+        name: loc.province,
+        value: [loc.lng, loc.lat, place.downLoadCount, place.registerCount, place.serviceCount],
+        selected: true
+    }]);
+    setTimeout(() => {
+        getLoc(area);
+    }, 5000)
 }
 

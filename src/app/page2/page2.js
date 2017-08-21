@@ -24,6 +24,7 @@ import sspjqkTpl from "./tpl/sspjqk.ejs"
 import slide from "../../module/slide/slide"
 import api from "../../lib/api"
 
+const DAY_COUNT = 7;
 let mainBox = $("body");
 $('header', mainBox).html(header({}));
 //时间日期展示
@@ -81,8 +82,8 @@ const swiper2Init = () => {
             let typeArr = ['fz', 'zz', 'hz', 'wz'];
             typeArr.forEach((type) => {
                 let line = [];
-                for (let i = 0; i < 7; i++) {
-                    let day = timeformat(new Date().getTime() + i * 24 * 3600 * 1000, "%m月%d日");
+                for (let i = 0; i < DAY_COUNT; i++) {
+                    let day = timeformat(new Date().getTime() - (DAY_COUNT - i) * 24 * 3600 * 1000, "%m月%d日");
                     line.push({name: day, value: Math.round(Math.random() * 1000)})
                 }
                 $(".liang-" + type).each(function (index, o) {
@@ -111,7 +112,7 @@ const swiper3Init = (resdata) => {
                     graphic.push({
                         type: "image",
                         left: 6,
-                        top: 5 + (partH - 2 - 40 - 30) / 5 * (index),
+                        top: (5 / (partH - 2 - 40 - 30) * (partH - 2 - 40 - 30)) + (partH - 2 - 40 - 30) / 5 * (index),
                         style: {
                             image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAMCAYAAAC5tzfZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpCQjRFNjAyMTgzMkQxMUU3ODU5MEJBQjRCRDFGQUFCQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpCQjRFNjAyMjgzMkQxMUU3ODU5MEJBQjRCRDFGQUFCQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkJCNEU2MDFGODMyRDExRTc4NTkwQkFCNEJEMUZBQUJDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkJCNEU2MDIwODMyRDExRTc4NTkwQkFCNEJEMUZBQUJDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+42sypQAAALdJREFUeNpi/H0jkQELkATiZ0CsCMQP0CWZsGgAiW2HsrcAMSMxmpSBWB/K1gZiBXQFLEDMA8QqUEkQnYymBmTbPCC+C3XqHUagn94CGUIMxINXIOc5AvEbYjUAsRNI0yUgtoCGFj7wGIgtgfgqLCBA7nUioMkZiO+hhx4fAU182IJcFU3RVzS+EjZNtlAa5Lc0IBYE4hQgfgEVt8OmCRSC5UAsC8Szgfg3EM8FYhkgrkQOYYAAAwAnDCFh7k9INAAAAABJRU5ErkJggg==",
                             width: 12,
@@ -262,7 +263,7 @@ $("#online-week").data("data", [
 ])
 
 let yyghLine = [];
-const DAY_COUNT = 7;
+
 for (let i = 0; i < DAY_COUNT; i++) {
     let day = timeformat(new Date().getTime() - (DAY_COUNT - i) * 24 * 3600 * 1000, "%m月%d日");
     yyghLine.push({name: day, value: Math.round(Math.random() * 1000)})
