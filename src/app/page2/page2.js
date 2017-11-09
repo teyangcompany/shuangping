@@ -23,10 +23,23 @@ import sszxqkTpl from "./tpl/sszxqk.ejs"
 import sspjqkTpl from "./tpl/sspjqk.ejs"
 import slide from "../../module/slide/slide"
 import api from "../../lib/api"
+import {API_URL} from "../../lib/config";
+import {getParamsFromUrl, makeUrl} from "../../lib/utils";
 
 const DAY_COUNT = 7;
 let mainBox = $("body");
-$('header', mainBox).html(header({}));
+let options = getParamsFromUrl(location.href);
+if (options.query && options.query.env) {
+    var env = options.query.env
+} else {
+    var env = "dev"
+}
+$('header', mainBox).html(header({
+    list: API_URL,
+    env: env,
+    makeUrl: makeUrl,
+    options: options
+}));
 //时间日期展示
 time();
 let H, W, partH, partW = {};
@@ -84,7 +97,7 @@ const swiper2Init = () => {
                 let line = [];
                 for (let i = 0; i < DAY_COUNT; i++) {
                     let day = timeformat(new Date().getTime() - (DAY_COUNT - i) * 24 * 3600 * 1000, "%m月%d日");
-                    line.push({name: day, value: Math.round(Math.random() * 1000)})
+                    line.push({name: day, value: 0})
                 }
                 $(".liang-" + type).each(function (index, o) {
                     $(o).data('refresh', 1)
@@ -164,110 +177,153 @@ $(document).ready(() => {
     slide("#slide-sszxqk", sszxqkTpl)
 })
 
+data_api()
 
-api("nethos.demo.area.count", {}).then((res) => {
-    console.log("data1", res);
-    /*热门医生/热门科室*/
-    swiper1Init(res.obj);
-    /*实时咨询情况*/
-    let consultInfoList = res.obj.consultInfoList;
-    /*{
-            time: time,
-            name: str.substr(Math.floor(Math.random() * str.length), 1),
-            hos: ["浙医二院", "长兴医院"][Math.floor(Math.random() * 2)],
-            dept: ["呼吸", "消化", "内分泌"][Math.floor(Math.random() * 3)] + "科",
-            doc: str.substr(Math.floor(Math.random() * str.length), 3),
-            content: str.substr(Math.floor(Math.random() * str.length))
-        }*/
-    consultInfoList = consultInfoList.map((consult) => {
-        consult.time = timeformat(consult.createTime, "%m-%d");
-        consult.name = consult.consulterName.substr(0, 1);
-        consult.hos = "浙医二院";
-        consult.dept = consult.consultTypeName;
-        consult.doc = "";
-        consult.content = consult.consultContent;
-        return consult
-    });
-    $("#slide-sszxqk").data("refresh", 1);
-    $("#slide-sszxqk").data("data", consultInfoList);
-    slide("#slide-sszxqk", sszxqkTpl);
+function data_api() {
+    api("nethos.demo.area.count", {}).then((res) => {
+        console.log("data1", res);
+        setTimeout(function () {
+            data_api();
+        }, 10 * 60 * 1000)
+        /*热门医生/热门科室*/
+        swiper1Init(res.obj);
+        /*实时咨询情况*/
+        let consultInfoList = res.obj.consultInfoList;
+        consultInfoList = consultInfoList.map((consult) => {
+            consult.time = timeformat(consult.createTime, "%m-%d");
+            consult.name = consult.consulterName.substr(0, 1);
+            consult.hos = "浙医二院";
+            consult.dept = consult.consultTypeName;
+            consult.doc = "";
+            consult.content = consult.consultContent;
+            return consult
+        });
+        $("#slide-sszxqk").data("refresh", 1);
+        $("#slide-sszxqk").data("data", consultInfoList);
+        slide("#slide-sszxqk", sszxqkTpl);
 
-    /*实时评价情况*/
-    let commentLsit = res.obj.commentLsit;
-    commentLsit = commentLsit.map((comment) => {
-        comment.time = timeformat(comment.sysComment.createTime, "%H:%M");
-        comment.name = comment.patName.substr(0, 1);
-        comment.hos = "浙医二院";
-        comment.dept = comment.deptName;
-        comment.doc = comment.docName;
-        comment.content = "评分为" + comment.sysComment.score + "分";
-        return comment
+        /*实时评价情况*/
+        let commentLsit = res.obj.commentLsit;
+        commentLsit = commentLsit.map((comment) => {
+            comment.time = timeformat(comment.sysComment.createTime, "%H:%M");
+            comment.name = comment.patName.substr(0, 1);
+            comment.hos = "浙医二院";
+            comment.dept = comment.deptName;
+            comment.doc = comment.docName;
+            comment.content = "评分为" + comment.sysComment.score + "分";
+            return comment
+        })
+        $("#slide-sspjqk").data("refresh", 1);
+        $("#slide-sspjqk").data("data", commentLsit)
+        slide("#slide-sspjqk", sspjqkTpl);
+
+        /*热门预约医生/热门预约科室*/
+        swiper3Init(res.obj);
+
+        /*挂号预约量-总数*/
+        var clientBookTotalCount = res.obj.clientBookTotalCount;
+        setYygh("total", clientBookTotalCount);
+
+        /*线上服务量-总数*/
+        var clientServiceTotalCount = res.obj.clientServiceTotalCount;
+        setOnline("total", clientServiceTotalCount);
+
+        /*线上服务量-月*/
+        var clientServiceMonthCount = res.obj.clientServiceMonthCount;
+        setOnline("month", clientServiceMonthCount);
+
+        /*线上服务量-周*/
+        var clientRegisterWeekCount = res.obj.clientRegisterWeekCount;
+        setOnline("week", clientRegisterWeekCount);
+
+        /*预约挂号趋势*/
+        var dayBookCountList = res.obj.dayBookCountList;
+        setYyghLine(dayBookCountList);
+
+        /*分诊趋势*/
+        var dayPicConsultCountList = res.obj.dayPicConsultCountList
+        setLiangLine("fz", dayPicConsultCountList);
+
+        /*会诊趋势*/
+        var dayConsultGroupCountList = res.obj.dayConsultGroupCountList
+        setLiangLine("hz", dayConsultGroupCountList);
+
+        /*问诊趋势*/
+        var dayConsultInfoCountList = res.obj.dayConsultInfoCountList
+        setLiangLine("wz", dayConsultInfoCountList);
+
+
     })
-    $("#slide-sspjqk").data("refresh", 1);
-    $("#slide-sspjqk").data("data", commentLsit)
-    slide("#slide-sspjqk", sspjqkTpl);
+}
 
-    /*热门预约医生/热门预约科室*/
-    swiper3Init(res.obj);
-
-
-})
-api("nethos.demo.bookorder.list", {}).then((res) => {
-    console.log(res);
-})
 
 const bili = Math.random();
 
 function getDemoValue(max) {
-    return Math.round(bili * parseInt(max)
-    )
+    return Math.round(bili * parseInt(max))
 }
 
+function setYygh(model, data) {
+    $("#yygh-" + model).data("refresh", 1);
+    $("#yygh-" + model).data("data", [
+        {name: "V", text: "微信(V)", value: data.wechatBook || 0},
+        {name: "A", text: "APP(A)", value: data.appBook || 0},
+        {name: "X", text: "线上(X)", value: data.webBook || 0}
+    ])
+}
 
-$("#yygh-total").data("refresh", 1);
-$("#yygh-total").data("data", [
-    {name: "V", text: "微信(V)", value: getDemoValue(400)},
-    {name: "A", text: "APP(A)", value: getDemoValue(380)},
-    {name: "X", text: "线上(X)", value: getDemoValue(360)}
-])
+function setOnline(model, data) {
+    $("#online-" + model).data("refresh", 1)
+    $("#online-" + model).data("data", [
+        {name: "V", text: "微信(V)", value: data.wechatService},
+        {name: "A", text: "APP(A)", value: data.appService},
+        {name: "X", text: "线上(X)", value: data.webService}
+    ])
+}
+
+function setYyghLine(data) {
+    let yyghLine = [];
+    for (let i = 0; i < DAY_COUNT; i++) {
+        let day = timeformat(new Date().getTime() - (DAY_COUNT - i) * 24 * 3600 * 1000, "%m月%d日"),
+            showDay = timeformat(new Date().getTime() - (DAY_COUNT - i) * 24 * 3600 * 1000, "%Y-%m-%d");
+        yyghLine.push({name: day, value: checkLine(data, showDay, "dateTime")});
+    }
+    $("#yygh-line").data("refresh", 1);
+    $("#yygh-line").data("data", yyghLine);
+}
+
+function setLiangLine(model, data) {
+    let yyghLine = [];
+    for (let i = 0; i < DAY_COUNT; i++) {
+        let day = timeformat(new Date().getTime() - (DAY_COUNT - i) * 24 * 3600 * 1000, "%m月%d日"),
+            showDay = timeformat(new Date().getTime() - (DAY_COUNT - i) * 24 * 3600 * 1000, "%Y-%m-%d");
+        yyghLine.push({name: day, value: checkLine(data, showDay, "dateTime")});
+    }
+    $(".liang-" + model).data("refresh", 1);
+    $(".liang-" + model).data("data", yyghLine);
+}
+
+function checkLine(data, day, field) {
+    var d = data.filter(function (item, index) {
+        return item[field] == day;
+    });
+    if (d && d.length > 0) {
+        return d[0].total
+    }
+    return 0;
+}
+
 
 $("#yygh-mouth").data("refresh", 1)
 $("#yygh-mouth").data("data", [
-    {name: "V", text: "微信(V)", value: getDemoValue(100)},
-    {name: "A", text: "APP(A)", value: getDemoValue(95)},
-    {name: "X", text: "线上(X)", value: getDemoValue(90)}
+    {name: "V", text: "微信(V)", value: 0},
+    {name: "A", text: "APP(A)", value: 0},
+    {name: "X", text: "线上(X)", value: 0}
 ])
 $("#yygh-week").data("refresh", 1)
 $("#yygh-week").data("data", [
-    {name: "V", text: "微信(V)", value: getDemoValue(25)},
-    {name: "A", text: "APP(A)", value: getDemoValue(24)},
-    {name: "X", text: "线上(X)", value: getDemoValue(20)}
+    {name: "V", text: "微信(V)", value: 0},
+    {name: "A", text: "APP(A)", value: 0},
+    {name: "X", text: "线上(X)", value: 0}
 ])
-$("#online-total").data("refresh", 1)
-$("#online-total").data("data", [
-    {name: "V", text: "微信(V)", value: getDemoValue(550)},
-    {name: "A", text: "APP(A)", value: getDemoValue(600)},
-    {name: "X", text: "线上(X)", value: getDemoValue(500)}
-])
-$("#online-month").data("refresh", 1)
-$("#online-month").data("data", [
-    {name: "V", text: "微信(V)", value: getDemoValue(140)},
-    {name: "A", text: "APP(A)", value: getDemoValue(150)},
-    {name: "X", text: "线上(X)", value: getDemoValue(135)}
-])
-$("#online-week").data("refresh", 1)
-$("#online-week").data("data", [
-    {name: "V", text: "微信(V)", value: getDemoValue(17)},
-    {name: "A", text: "APP(A)", value: getDemoValue(20)},
-    {name: "X", text: "线上(X)", value: getDemoValue(15)}
-])
-
-let yyghLine = [];
-
-for (let i = 0; i < DAY_COUNT; i++) {
-    let day = timeformat(new Date().getTime() - (DAY_COUNT - i) * 24 * 3600 * 1000, "%m月%d日");
-    yyghLine.push({name: day, value: Math.round(Math.random() * 1000)})
-}
-$("#yygh-line").data("refresh", 1);
-$("#yygh-line").data("data", yyghLine);
 

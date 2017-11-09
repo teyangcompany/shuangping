@@ -1,0 +1,288 @@
+@font-face {
+  font-family: 'iconfont';
+  /* project id 353935 */
+  src: url("//at.alicdn.com/t/font_4t8k9eumlvpo80k9.eot");
+  src: url("//at.alicdn.com/t/font_4t8k9eumlvpo80k9.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/font_4t8k9eumlvpo80k9.woff") format("woff"), url("//at.alicdn.com/t/font_4t8k9eumlvpo80k9.ttf") format("truetype"), url("//at.alicdn.com/t/font_4t8k9eumlvpo80k9.svg#iconfont") format("svg"); }
+
+font {
+  font-family: "iconfont"; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+li {
+  list-style: none; }
+
+.oh {
+  overflow: hidden; }
+
+.fl {
+  float: left; }
+
+.fr {
+  float: right; }
+
+body {
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-image: url(/echarts/static/img/bjtp.png?6aa2ec3d035fa62bdd7a15437452bea4);
+  background-position: center; }
+
+header {
+  background-color: rgba(9, 36, 87, 0.5);
+  height: 35px;
+  overflow: hidden; }
+  header > div {
+    float: left; }
+  header .logo {
+    padding-top: 5px;
+    padding-left: 20px; }
+    header .logo img {
+      height: 25px; }
+  header > .text {
+    padding-left: 5px;
+    color: white;
+    line-height: 35px; }
+    header > .text a {
+      color: white; }
+      header > .text a.current {
+        color: #00ffff; }
+  header > .time {
+    float: right;
+    line-height: 35px;
+    margin-right: 20px;
+    color: white; }
+
+.main .total {
+  height: 100px; }
+  .main .total > div {
+    padding-top: 25px;
+    width: 50%;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle; }
+    .main .total > div > div {
+      display: inline-block; }
+
+.main .data .map {
+  width: 50%; }
+  .main .data .map #map {
+    margin: 0 25px; }
+
+.main .data .charts {
+  width: 50%; }
+  .main .data .charts .title {
+    height: 40px;
+    line-height: 40px;
+    color: #00a5b1;
+    font-size: 16px;
+    padding-left: 15px;
+    border-bottom: 1px solid #00a5b1; }
+  .main .data .charts .container {
+    padding: 10px; }
+  .main .data .charts .wrap {
+    background-color: #14274e;
+    border: 1px solid #00a5b1; }
+  .main .data .charts .reg-part .pielist ul {
+    overflow: hidden; }
+    .main .data .charts .reg-part .pielist ul li {
+      width: 25%;
+      float: left; }
+  .main .data .charts .download-part {
+    margin-top: 10px;
+    position: relative; }
+    .main .data .charts .download-part .line {
+      position: absolute;
+      left: 40%;
+      top: 50px;
+      bottom: 10px;
+      width: 1px;
+      background-color: #00a5b1; }
+    .main .data .charts .download-part .pie {
+      border-right: 0px none;
+      width: 40%; }
+      .main .data .charts .download-part .pie .title .current {
+        color: #00ffff; }
+      .main .data .charts .download-part .pie #swiper {
+        overflow: hidden;
+        position: relative; }
+        .main .data .charts .download-part .pie #swiper ol {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          overflow: hidden; }
+          .main .data .charts .download-part .pie #swiper ol li + li {
+            margin-left: 5px; }
+          .main .data .charts .download-part .pie #swiper ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            font-size: 12px;
+            border: 1px solid #00a5b1;
+            color: #00a5b1; }
+            .main .data .charts .download-part .pie #swiper ol li.current {
+              border: 1px solid #00ffff;
+              color: #00ffff; }
+    .main .data .charts .download-part .bar {
+      border-left: 0px none;
+      width: 60%; }
+
+#slide {
+  margin: 10px auto 0;
+  overflow: hidden; }
+  #slide ul li {
+    color: white;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
+    #slide ul li span {
+      padding-left: 5px;
+      font-size: 14px; }
+      #slide ul li span.dept, #slide ul li span.doc {
+        color: #00a5b1; }
+
+#floatslide {
+  position: fixed;
+  width: 250px;
+  height: 150px;
+  bottom: 30px;
+  left: 20px;
+  overflow: hidden; }
+  #floatslide ul li {
+    color: white;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; }
+    #floatslide ul li span {
+      padding-left: 5px;
+      font-size: 14px; }
+      #floatslide ul li span.dept, #floatslide ul li span.doc {
+        color: #00a5b1; }
+
+footer {
+  line-height: 30px;
+  text-align: center;
+  color: white;
+  font-size: 14px; }
+.module-number ul {
+  overflow: hidden; }
+  .module-number ul > div {
+    margin-right: 20px;
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    color: #fdde73;
+    font-size: 20px; }
+  .module-number ul > li {
+    margin-left: 5px;
+    overflow: hidden;
+    font-family: "Microsoft JhengHei";
+    background-color: rgba(20, 40, 81, 0.7);
+    border: 1px solid #56e1ee;
+    width: 30px;
+    height: 50px;
+    line-height: 50px;
+    color: #56e1ee;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bolder;
+    float: left; }
+    .module-number ul > li.nonumber {
+      background: none;
+      border: 0px none; }
+    .module-number ul > li.yesnumber ol {
+      transition: all 1s ease; }
+@font-face {
+  font-family: 'iconfont';
+  /* project id 353935 */
+  src: url("//at.alicdn.com/t/font_4t8k9eumlvpo80k9.eot");
+  src: url("//at.alicdn.com/t/font_4t8k9eumlvpo80k9.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/font_4t8k9eumlvpo80k9.woff") format("woff"), url("//at.alicdn.com/t/font_4t8k9eumlvpo80k9.ttf") format("truetype"), url("//at.alicdn.com/t/font_4t8k9eumlvpo80k9.svg#iconfont") format("svg"); }
+
+font {
+  font-family: "iconfont"; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+li {
+  list-style: none; }
+
+.oh {
+  overflow: hidden; }
+
+.fl {
+  float: left; }
+
+.fr {
+  float: right; }
+
+body {
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-image: url(/echarts/static/img/bjtp.png?6aa2ec3d035fa62bdd7a15437452bea4);
+  background-position: center; }
+
+header {
+  background-color: rgba(9, 36, 87, 0.5);
+  height: 35px;
+  overflow: hidden; }
+  header > div {
+    float: left; }
+  header .logo {
+    padding-top: 5px;
+    padding-left: 20px; }
+    header .logo img {
+      height: 25px; }
+  header > .text {
+    padding-left: 5px;
+    color: white;
+    line-height: 35px; }
+    header > .text a {
+      color: white; }
+      header > .text a.current {
+        color: #00ffff; }
+  header > .time {
+    float: right;
+    line-height: 35px;
+    margin-right: 20px;
+    color: white; }
+
+.module-tuli ul li + li {
+  margin-left: 20px; }
+
+.module-tuli ul li {
+  height: 25px;
+  line-height: 25px;
+  overflow: hidden; }
+  .module-tuli ul li i, .module-tuli ul li span, .module-tuli ul li font {
+    float: left;
+    font-size: 14px;
+    display: inline-block; }
+  .module-tuli ul li i:first-child {
+    padding-top: 10px; }
+  .module-tuli ul li span {
+    color: white; }
+  .module-tuli ul li i {
+    font-style: normal; }
+    .module-tuli ul li i font {
+      margin-right: 5px;
+      width: 15px;
+      height: 5px; }
+  .module-tuli ul li i.wei {
+    color: #00ffff; }
+    .module-tuli ul li i.wei font {
+      background-color: #00ffff; }
+  .module-tuli ul li i.app {
+    color: #089dfb; }
+    .module-tuli ul li i.app font {
+      background-color: #089dfb; }
+  .module-tuli ul li i.online {
+    color: #615afb; }
+    .module-tuli ul li i.online font {
+      background-color: #615afb; }
+
+/*# sourceMappingURL=page1.35370c6d75061dda5be4.css.map*/

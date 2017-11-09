@@ -9,6 +9,30 @@ function getRandom() {
     return random;
 }
 
+/**
+ * 获得api_url
+ * @param callback
+ * @returns {string}
+ */
+function getApiUrl() {
+    let query = url("?");
+    if (query && query.env) {
+        var env = query.env;
+    } else {
+        var env = "dev";
+    }
+    let api_url = "";
+    for (let key in API_URL) {
+        if (env == key) {
+            api_url = API_URL[key].api;
+        }
+    }
+    if (!api_url) {
+        api_url = API_URL[Object.keys(API_URL)[0]].api;
+    }
+    return api_url;
+}
+
 export default function (service, options) {
     let random = getRandom();
     basicParam.random = random;
@@ -22,7 +46,8 @@ export default function (service, options) {
             "Content-Type": "application/json"
         },
     }
-    return axios.post(API_URL, fdata, config)
+    let url = getApiUrl();
+    return axios.post(url, fdata, config)
         .then((res) => {
             if (res.status == 200) {
                 return res.data;

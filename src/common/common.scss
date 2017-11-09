@@ -1,31 +1,39 @@
 @import "font";
 @import "public";
-body{
-  font-family:"Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+body {
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-image: url("../../../static/img/bjtp.png");
   background-position: center;
 }
-header{
-  $h:35px;
-  background-color: rgba(9,36,87,.5);
+
+header {
+  $h: 35px;
+  background-color: rgba(9, 36, 87, .5);
   height: $h;
   overflow: hidden;
-  >div{
+  > div {
     float: left;
   }
-  .logo{
+  .logo {
     padding-top: 5px;
     padding-left: 20px;
-    img{
+    img {
       height: 25px;
     }
   }
-  >.text{
+  > .text {
     padding-left: 5px;
     color: white;
     line-height: $h;
+    a {
+      color: white;
+      &.current {
+        color: #00ffff;
+      }
+    }
   }
-  >.time{
+  > .time {
     float: right;
     line-height: $h;
     margin-right: 20px;

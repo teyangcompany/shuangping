@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>运营数据</title>
+    <script src="./static/js/md5-min.js"></script>
+<script src="./static/js/sha512.min.js"></script>
+<script src="./static/js/url.min.js"></script>
+<link href="/echarts/static/css/commons.css" rel="stylesheet"><link href="/echarts/static/css/page1.05994e3bf7f4239bbc55.css" rel="stylesheet"></head>
+<body>
+<header></header>
+<div class="main">
+    <div class="oh total">
+        <div class="fl user">
+            <div label="累计注册用户" id="user_total" total="87123" class="module-number"></div>
+        </div>
+        <div class="fr server">
+            <div label="累计服务人次" id="server_total" total="987653" class="module-number"></div>
+        </div>
+    </div>
+    <div class="oh data">
+        <div class="fl map">
+            <div id="map" class="module-map"></div>
+            <div id="floatslide"></div>
+            <!--<div id="slide"></div>-->
+        </div>
+        <div class="fr charts">
+            <div class="wrap reg-part">
+                <div class="title">
+                    注册用户数
+                </div>
+                <div class="container">
+                    <div class="tuli module-tuli"></div>
+                    <div class="pielist">
+                        <ul>
+                            <li title="总数" class="module-pie1" id="total-reg"></li>
+                            <li title="本月新增" class="module-pie1" id="month-reg"></li>
+                            <li title="本周新增" class="module-pie1" id="week-reg"></li>
+                            <li title="今日新增" class="module-pie1" id="today-reg"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="oh download-part">
+                <p class="line"></p>
+                <div class="fl wrap pie">
+                    <div class="title"><span class="current">下载量</span>/<span>注册量</span></div>
+                    <div class="container">
+                        <div id="swiper" class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="download-pie swiper-slide module-pie2"></div>
+                                <div class="reg-pie swiper-slide module-pie2"></div>
+                            </div>
+                            <ol>
+                                <li class="current">1</li>
+                                <li>2</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="fl wrap bar">
+                    <div class="title">服务量</div>
+                    <div class="container">
+                        <div id="server_bar" class="module-bar1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>技术支持：杭州特扬网络科技有限公司</footer>
+<script type="text/javascript" src="/echarts/commons.js"></script><script type="text/javascript" src="/echarts/page1.05994e3bf7f4239bbc55.js"></script></body>
+</html>

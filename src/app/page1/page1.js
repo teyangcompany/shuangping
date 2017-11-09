@@ -5,7 +5,7 @@ import "./page1.scss";
 import $ from "../../lib/jquery-vendor";
 import api from "../../lib/api";
 import provincesArr from "china-province-info";
-
+import {API_URL} from "../../lib/config";
 
 import header from "../public/header.ejs";
 import time from "../../module/time/time";
@@ -23,9 +23,21 @@ import bar1 from "../../module/bar1/bar1"
 import map from "../../module/map/map"
 import slide from "../../module/slide/slide"
 import ssyyqkTpl from "./tpl/ssyyqk.ejs"
+import {getParamsFromUrl, makeUrl} from "../../lib/utils";
 
+let options = getParamsFromUrl(location.href);
+if (options.query && options.query.env) {
+    var env = options.query.env
+} else {
+    var env = "dev"
+}
 let mainBox = $("body");
-$('header', mainBox).html(header({}));
+$('header', mainBox).html(header({
+    list: API_URL,
+    env: env,
+    makeUrl: makeUrl,
+    options: options
+}));
 //时间日期展示
 time();
 //数字滚动展示
@@ -126,100 +138,102 @@ const getGPS = (place) => {
     return provincesArr[index];
 }
 
-
-const getData = function () {
-    return [
-        {name: "V", text: "微信(V)", value: Math.round(Math.random() * 1000)},
-        {name: "A", text: "APP(A)", value: Math.round(Math.random() * 1000)},
-        {name: "X", text: "线上(X)", value: Math.round(Math.random() * 1000)}
-    ]
-};
 //数据统计
-api("nethos.demo.total.count", {}).then((res) => {
-    if (res.code == 0) {
-        $("#user_total", mainBox).attr("total", res.obj.registerCount);
-        $("#server_total", mainBox).attr("total", res.obj.serviceCount);
-    }
-});
-api("nethos.demo.area.count", {}).then((res) => {
-    console.log("data1", res);
-    /*地图数据*/
-    //let area = ["浙江省", "山东省", "新疆维吾尔族自治区", "上海市", "四川省", "江苏省", "广东省", "江西省", "北京市", "福建省"];
-    let area = res.obj.provinceCountList;
-    getLoc(area);
+total_api();
 
-    /*服务量按地区排序*/
-    let cityServiceCountList = res.obj.cityServiceCountList;
-    cityServiceCountList = cityServiceCountList.map((city) => {
-        city.name = city.cityName
-        city.value = city.serviceCount
-        return city
-    });
-    let qitaIndex = cityServiceCountList.findIndex((city) => {
-        return city.name == "其他"
-    })
-    let qitaData = cityServiceCountList.splice(qitaIndex, 1);
-    //console.log(qitaData);
-    cityServiceCountList.sort((a, b) => {
-        return b.value - a.value
-    });
-    $("#server_bar").data("refresh", 1);
-    $("#server_bar").data("data", cityServiceCountList.concat(qitaData))
+function total_api() {
+    api("nethos.demo.total.count", {}).then((res) => {
+        if (res.code == 0) {
+            $("#user_total", mainBox).attr("total", res.obj.registerCount);
+            $("#server_total", mainBox).attr("total", res.obj.serviceCount);
+        }
 
-    /*注册用户数四个维度统计*/
-    /*let clientRegisterMonthCount = res.obj.clientRegisterMonthCount
-    let clientRegisterTodayCount = res.obj.clientRegisterTodayCount
-    let clientRegisterTotalCount = res.obj.clientRegisterTotalCount
-    let clientRegisterWeekCount = res.obj.clientRegisterWeekCount*/
-    let fields = ["wechatRegister-V", "appRegister-A", "webRegister-X"]
-    let regDiv = ["total", "month", "week", "today"];
-    regDiv.forEach((id) => {
-        let key = `clientRegister${id.substr(0, 1).toUpperCase() + id.substr(1)}Count`
-        let data = [];
-        fields.forEach((fields) => {
-            let arr = fields.split("-");
-            data.push({
-                name: arr[1],
-                value: parseInt(res.obj[key][arr[0]])
-            });
+        setTimeout(function () {
+            total_api();
+        }, 10 * 60 * 1000)
+    });
+}
+
+area_api();
+
+function area_api() {
+    api("nethos.demo.area.count", {}).then((res) => {
+        setTimeout(function () {
+            area_api();
+        }, 10 * 60 * 1000)
+
+
+        /*地图数据*/
+        //let area = ["浙江省", "山东省", "新疆维吾尔族自治区", "上海市", "四川省", "江苏省", "广东省", "江西省", "北京市", "福建省"];
+        let area = res.obj.provinceCountList;
+        getLoc(area);
+
+        /*服务量按地区排序*/
+        let cityServiceCountList = res.obj.cityServiceCountList;
+        cityServiceCountList = cityServiceCountList.map((city) => {
+            city.name = city.cityName
+            city.value = city.serviceCount
+            return city
         });
-        $(`#${id}-reg`).data("refresh", 1)
-        $(`#${id}-reg`).data("width", 2.5);
-        $(`#${id}-reg`).data("data", data)
+        let qitaIndex = cityServiceCountList.findIndex((city) => {
+            return city.name == "其他"
+        })
+        let qitaData = cityServiceCountList.splice(qitaIndex, 1);
+        //console.log(qitaData);
+        cityServiceCountList.sort((a, b) => {
+            return b.value - a.value
+        });
+        $("#server_bar").data("refresh", 1);
+        $("#server_bar").data("data", cityServiceCountList.concat(qitaData))
+
+        /*注册用户数四个维度统计*/
+        /*let clientRegisterMonthCount = res.obj.clientRegisterMonthCount
+        let clientRegisterTodayCount = res.obj.clientRegisterTodayCount
+        let clientRegisterTotalCount = res.obj.clientRegisterTotalCount
+        let clientRegisterWeekCount = res.obj.clientRegisterWeekCount*/
+        let fields = ["wechatRegister-V", "appRegister-A", "webRegister-X"]
+        let regDiv = ["total", "month", "week", "today"];
+        regDiv.forEach((id) => {
+            let key = `clientRegister${id.substr(0, 1).toUpperCase() + id.substr(1)}Count`
+            let data = [];
+            fields.forEach((fields) => {
+                let arr = fields.split("-");
+                data.push({
+                    name: arr[1],
+                    value: parseInt(res.obj[key][arr[0]])
+                });
+            });
+            $(`#${id}-reg`).data("refresh", 1);
+            $(`#${id}-reg`).data("width", 2.5);
+            $(`#${id}-reg`).data("data", data)
+        })
     })
+}
 
+list_api()
 
-})
-api("nethos.demo.bookorder.list", {}).then((res) => {
-    console.log("data2", res);
-    /*最近预约记录*/
-    let bookOrderList = res.obj.bookOrderList;
-    bookOrderList = bookOrderList.map((book) => {
-        book.time = book.bookTime;
-        book.name = book.patientName;
-        book.dept = book.deptName;
-        book.hos = book.hosName.replace("浙江大学医学院附属第二医院", "浙医二院");
-        book.doc = book.docName
-        book.content = ""
-        return book;
+function list_api() {
+    api("nethos.demo.bookorder.list", {}).then((res) => {
+        console.log("data2", res);
+        setTimeout(function () {
+            list_api();
+        }, 10 * 60 * 1000)
+        /*最近预约记录*/
+        let bookOrderList = res.obj.bookOrderList;
+        bookOrderList = bookOrderList.map((book) => {
+            book.time = book.bookTime;
+            book.name = book.patientName;
+            book.dept = book.deptName;
+            book.hos = book.hosName.replace("浙江大学医学院附属第二医院", "浙医二院");
+            book.doc = book.docName
+            book.content = ""
+            return book;
+        })
+        $("#floatslide").data("refresh", 1);
+        $("#floatslide").data("data", bookOrderList)
+        slide("#floatslide", ssyyqkTpl);
     })
-    $("#floatslide").data("refresh", 1);
-    $("#floatslide").data("data", bookOrderList)
-    slide("#floatslide", ssyyqkTpl);
-})
-//模拟数据
-/*setInterval((res) => {
-    let t = $("#user_total", mainBox).attr("total");
-    t = parseInt(t) + Math.round(Math.random() * 1000);
-    $("#user_total", mainBox).attr("total", t);
-}, 5000)*/
-
-/*let regDiv = ["total", "month", "week", "today"];
-regDiv.forEach((res) => {
-    $(`#${res}-reg`).data("refresh", 1)
-    $(`#${res}-reg`).data("width", 2.5);
-    $(`#${res}-reg`).data("data", getData())
-})*/
+}
 
 
 function getLoc(area) {

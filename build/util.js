@@ -14,10 +14,10 @@ const cssLoader = function (loads, extractFun) {
     }
 }
 
-const getPublicPath = function () {
+const getPublicPath = function (publicPath) {
     if (process.env.NODE_ENV === "production") {
-        if (argvs && argvs["publicPath"]) {
-            return argvs["publicPath"]
+        if (publicPath) {
+            return publicPath
         } else {
             return "./"
         }

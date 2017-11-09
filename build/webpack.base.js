@@ -38,7 +38,7 @@ module.exports = {
     entry: entryObj,
     output: {
         path: resolve("dist"),
-        publicPath: getPublicPath(),
+        publicPath: getPublicPath("/echarts/"),
         filename: "[name].[hash].js"
     },
     resolve: {
@@ -73,7 +73,7 @@ module.exports = {
                     options: {
                         limit: 8192,
                         outputPath: "static/img/",
-                        publicPath: getPublicPath(),
+                        publicPath: getPublicPath("/echarts/"),
                         name: "[name].[ext]?[hash]"
                     }
                 }]

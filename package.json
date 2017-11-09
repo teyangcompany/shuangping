@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --open --inline --hot",
-    "build": "cross-env NODE_ENV=production PLATFORM=web webpack --progress"
+    "build": "cross-env NODE_ENV=production PLATFORM=web webpack --progress",
+    "copy": "node build/prod.js"
   },
   "repository": {
     "type": "git",
@@ -51,6 +52,7 @@
     "china-province-info": "^1.0.21",
     "echarts": "^3.6.2",
     "lmw-time-format": "^1.0.1",
+    "shelljs": "^0.7.8",
     "webpack-merge": "^4.1.0"
   }
 }

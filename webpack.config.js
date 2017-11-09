@@ -9,7 +9,8 @@ module.exports = Merge(BaseConfig, {
     devtool: process.env.NODE_ENV === "production" ? "source-map" : "cheap-eval-source-map",
     devServer: {
         contentBase: [resolve('dist'), resolve('./')],
-        port: 8080
+        port: 8080,
+        disableHostCheck:true
     },
     plugins: process.env.NODE_ENV === "production" ? [
         new CopyWebpackPlugin([{
