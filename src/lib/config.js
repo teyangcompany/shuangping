@@ -11,3 +11,5 @@ export const basicParam = {//服务器交互基本参数
     format: "JSON",
     oper: "127.0.0.1"
 }
+
+export const TIME_DELAY = 1 * 60 * 1000

@@ -39,8 +39,12 @@ const init = function (el, data, tplFun) {
     }, 50)
 }
 export default function (selector, tplFun) {
-    let el = $(selector)[0];
-    setInterval(function () {
+    let el = $(selector)[0], interval = null;
+    if (interval) {
+        clearInterval(interval);
+        interval = null;
+    }
+    interval = setInterval(function () {
         let data = $(el).data("data")
         let refresh = $(el).data("refresh");
         if (refresh && refresh == 1) {

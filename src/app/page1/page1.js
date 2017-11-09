@@ -5,7 +5,7 @@ import "./page1.scss";
 import $ from "../../lib/jquery-vendor";
 import api from "../../lib/api";
 import provincesArr from "china-province-info";
-import {API_URL} from "../../lib/config";
+import {API_URL, TIME_DELAY} from "../../lib/config";
 
 import header from "../public/header.ejs";
 import time from "../../module/time/time";
@@ -24,6 +24,7 @@ import map from "../../module/map/map"
 import slide from "../../module/slide/slide"
 import ssyyqkTpl from "./tpl/ssyyqk.ejs"
 import {getParamsFromUrl, makeUrl} from "../../lib/utils";
+
 
 let options = getParamsFromUrl(location.href);
 if (options.query && options.query.env) {
@@ -147,10 +148,9 @@ function total_api() {
             $("#user_total", mainBox).attr("total", res.obj.registerCount);
             $("#server_total", mainBox).attr("total", res.obj.serviceCount);
         }
-
         setTimeout(function () {
             total_api();
-        }, 10 * 60 * 1000)
+        }, TIME_DELAY)
     });
 }
 
@@ -160,7 +160,7 @@ function area_api() {
     api("nethos.demo.area.count", {}).then((res) => {
         setTimeout(function () {
             area_api();
-        }, 10 * 60 * 1000)
+        }, TIME_DELAY)
 
 
         /*地图数据*/
@@ -217,7 +217,7 @@ function list_api() {
         console.log("data2", res);
         setTimeout(function () {
             list_api();
-        }, 10 * 60 * 1000)
+        }, TIME_DELAY)
         /*最近预约记录*/
         let bookOrderList = res.obj.bookOrderList;
         bookOrderList = bookOrderList.map((book) => {
