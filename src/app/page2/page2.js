@@ -23,7 +23,7 @@ import sszxqkTpl from "./tpl/sszxqk.ejs"
 import sspjqkTpl from "./tpl/sspjqk.ejs"
 import slide from "../../module/slide/slide"
 import api from "../../lib/api"
-import {API_URL} from "../../lib/config";
+import {API_URL, TIME_DELAY} from "../../lib/config";
 import {getParamsFromUrl, makeUrl} from "../../lib/utils";
 
 const DAY_COUNT = 7;
@@ -184,7 +184,7 @@ function data_api() {
         console.log("data1", res);
         setTimeout(function () {
             data_api();
-        }, 10 * 60 * 1000)
+        }, TIME_DELAY)
         /*热门医生/热门科室*/
         swiper1Init(res.obj);
         /*实时咨询情况*/
