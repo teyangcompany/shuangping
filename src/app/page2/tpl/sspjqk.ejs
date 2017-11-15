@@ -5,7 +5,7 @@
         <span><%= d.time %></span>
         <span><%= d.name %>**</span>
         <span>评价<%= d.hos %></span>
-        <span class="dept"><%= d.dept %></span>
+        <span class="dept"><%= d.dept ? d.dept : "" %></span>
         <span class="doc"><%= d.doc %></span>
         <span>:<%= d.content %></span>
     </li>

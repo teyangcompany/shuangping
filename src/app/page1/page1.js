@@ -6,7 +6,7 @@ import $ from "../../lib/jquery-vendor";
 import api from "../../lib/api";
 import provincesArr from "china-province-info";
 import {API_URL, TIME_DELAY} from "../../lib/config";
-
+import timeformat from "lmw-time-format";
 import header from "../public/header.ejs";
 import time from "../../module/time/time";
 import number from "../../module/number/number";
@@ -151,6 +151,10 @@ function total_api() {
         setTimeout(function () {
             total_api();
         }, TIME_DELAY)
+    }, function () {
+        setTimeout(function () {
+            total_api();
+        }, TIME_DELAY)
     });
 }
 
@@ -161,6 +165,9 @@ function area_api() {
         setTimeout(function () {
             area_api();
         }, TIME_DELAY)
+        if (res.code != 0) {
+            return
+        }
 
 
         /*地图数据*/
@@ -207,6 +214,10 @@ function area_api() {
             $(`#${id}-reg`).data("width", 2.5);
             $(`#${id}-reg`).data("data", data)
         })
+    }, function () {
+        setTimeout(function () {
+            area_api();
+        }, TIME_DELAY)
     })
 }
 
@@ -214,24 +225,31 @@ list_api()
 
 function list_api() {
     api("nethos.demo.bookorder.list", {}).then((res) => {
-        console.log("data2", res);
         setTimeout(function () {
             list_api();
         }, TIME_DELAY)
+        if (res.code != 0) {
+            return
+        }
         /*最近预约记录*/
         let bookOrderList = res.obj.bookOrderList;
         bookOrderList = bookOrderList.map((book) => {
-            book.time = book.bookTime;
+            book.time = timeformat(book.createTime, "%Y-%m-%d");
             book.name = book.patientName;
             book.dept = book.deptName;
             book.hos = book.hosName.replace("浙江大学医学院附属第二医院", "浙医二院");
             book.doc = book.docName
             book.content = ""
+
             return book;
         })
         $("#floatslide").data("refresh", 1);
         $("#floatslide").data("data", bookOrderList)
         slide("#floatslide", ssyyqkTpl);
+    }, function () {
+        setTimeout(function () {
+            list_api();
+        }, TIME_DELAY)
     })
 }
 
@@ -245,8 +263,5 @@ function getLoc(area) {
         value: [loc.lng, loc.lat, place.downLoadCount, place.registerCount, place.serviceCount],
         selected: true
     }]);
-    setTimeout(() => {
-        getLoc(area);
-    }, 5000)
 }
 

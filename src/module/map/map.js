@@ -1,4 +1,5 @@
 import "../../lib/china"
+import timeFormat from "lmw-time-format"
 
 const PROVINCES = ["广东", "广西", "云南", "黑龙江", "吉林", "辽宁", "内蒙古", "新疆", "河北", "北京", "天津", "陕西", "山西", "山东", "河南", "安徽", "浙江", "江苏", "湖北", "上海", "重庆", "四川", "湖南", "江西", "福建", "贵州", "海南", "西藏", "青海", "甘肃", "宁夏", "海南", "台湾", "中国", "香港", "澳门"];
 const getData = (arr) => {
@@ -13,7 +14,7 @@ const getData = (arr) => {
                     }
                 }
             })
-        }else if(["中国"].indexOf(data.name) >= 0){
+        } else if (["中国"].indexOf(data.name) >= 0) {
             data = Object.assign({}, data, {
                 itemStyle: {
                     normal: {
@@ -121,6 +122,7 @@ export default function (echarts) {
             let data = $(el).data("data")
             let refresh = $(el).data("refresh")
             if (refresh && refresh == 1) {
+                console.log("地图初始化",timeFormat(new Date().getTime(),"%Y-%m-%d %H:%M:%S"));
                 init(el, echarts, data)
             }
         }, 1000)

@@ -1,7 +1,7 @@
 <ul>
     <% for(var i = 0;i < list.length;i++){ %>
     <% var d = list[i] %>
-    <li>
+    <li data-index="<%= i+1 %>">
         <span><%= d.time.substr(5) %></span>
         <span><%= d.name.substr(0, 1) %>**</span>
         <span>预约<%= d.hos %></span>

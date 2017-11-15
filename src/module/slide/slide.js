@@ -9,51 +9,45 @@ const init = function (el, data, tplFun) {
     });
     let h = $(el).css("height");
     $(el).html(html);
+
     let lis = $("ul", $(el)).html();
     $("ul", $(el)).html(lis + lis)
     el.dataset.pos = 0
     $("ul li", $(el)).css("height", `${parseInt(h) / 5}px`);
-
+    let scrollHeight = $("ul li", $(el)).length * (parseInt(h) / 5);
     let initStatus = $(el).data("initStatus");
     if (initStatus) {
         return
     }
     if (timer) {
         clearInterval(timer);
+        timer = null
     }
-
     //console.log($(el).find("ul"));
     timer = setInterval((res) => {
         $(el).data("initStatus", 1);
         let pos = parseInt(el.dataset.pos);
         pos++;
-        if (pos > parseInt(h)) {
+        if (pos > parseInt(scrollHeight / 2)) {
             pos = 0
         }
         el.dataset.pos = pos;
         $(el).find("ul").css("transform", `translate(0px,${0 - pos}px)`);
         $(el).find("ul li").each((index, li) => {
             let top = $(li).position().top;
-            let progress = (top) / (36 * 3);
-            if (top > 36 * 3) {
-                $(li).css("opacity", 1)
-            } else {
-                $(li).css("opacity", progress.toFixed(2))
-            }
+            $(li).attr("data-top", top).css("opacity", top / (parseInt(h) / 5) * 2);
+
         })
-    }, 50)
+    }, 100)
 }
 export default function (selector, tplFun) {
     let el = $(selector)[0], interval = null, initStatus = $(el).data("initStatus");
     if (initStatus && initStatus == 1) {
         return
     }
-
-    interval = setInterval(function () {
-        let data = $(el).data("data")
-        let refresh = $(el).data("refresh");
-        if (refresh && refresh == 1) {
-            init(el, data, tplFun);
-        }
-    }, 1000)
+    let data = $(el).data("data")
+    let refresh = $(el).data("refresh");
+    if (refresh && refresh == 1) {
+        init(el, data, tplFun);
+    }
 }

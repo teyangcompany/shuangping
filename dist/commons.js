@@ -91,7 +91,7 @@
 /******/ 		if (__webpack_require__.nc) {
 /******/ 			script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 		}
-/******/ 		script.src = __webpack_require__.p + "" + chunkId + "." + "2d67e1c52b64f75b7077" + ".js";
+/******/ 		script.src = __webpack_require__.p + "" + chunkId + "." + "1b954698c8835574c426" + ".js";
 /******/ 		var timeout = setTimeout(onScriptComplete, 120000);
 /******/ 		script.onerror = script.onload = onScriptComplete;
 /******/ 		function onScriptComplete() {
@@ -788,7 +788,7 @@ if (typeof __DEV__ === 'undefined') {
     var ComponentModel = __webpack_require__(12);
     var SeriesModel = __webpack_require__(14);
 
-    var ComponentView = __webpack_require__(72);
+    var ComponentView = __webpack_require__(73);
     var ChartView = __webpack_require__(28);
     var graphic = __webpack_require__(2);
     var modelUtil = __webpack_require__(4);
@@ -798,7 +798,7 @@ if (typeof __DEV__ === 'undefined') {
     var zrUtil = __webpack_require__(0);
     var colorTool = __webpack_require__(25);
     var Eventful = __webpack_require__(32);
-    var timsort = __webpack_require__(73);
+    var timsort = __webpack_require__(74);
 
     var each = zrUtil.each;
     var parseClassType = ComponentModel.parseClassType;
@@ -2768,7 +2768,7 @@ if (typeof __DEV__ === 'undefined') {
     var colorTool = __webpack_require__(25);
     var matrix = __webpack_require__(18);
     var vector = __webpack_require__(5);
-    var Transformable = __webpack_require__(67);
+    var Transformable = __webpack_require__(68);
     var BoundingRect = __webpack_require__(8);
 
     var round = Math.round;
@@ -2777,9 +2777,9 @@ if (typeof __DEV__ === 'undefined') {
 
     var graphic = {};
 
-    graphic.Group = __webpack_require__(51);
+    graphic.Group = __webpack_require__(52);
 
-    graphic.Image = __webpack_require__(70);
+    graphic.Image = __webpack_require__(71);
 
     graphic.Text = __webpack_require__(116);
 
@@ -7281,7 +7281,7 @@ if (typeof __DEV__ === 'undefined') {
     var Model = __webpack_require__(9);
     var zrUtil = __webpack_require__(0);
     var arrayPush = Array.prototype.push;
-    var componentUtil = __webpack_require__(71);
+    var componentUtil = __webpack_require__(72);
     var clazzUtil = __webpack_require__(24);
     var layout = __webpack_require__(7);
 
@@ -7477,7 +7477,7 @@ if (typeof __DEV__ === 'undefined') {
 
 
 
-    var Displayable = __webpack_require__(49);
+    var Displayable = __webpack_require__(50);
     var zrUtil = __webpack_require__(0);
     var PathProxy = __webpack_require__(36);
     var pathContain = __webpack_require__(231);
@@ -8271,7 +8271,7 @@ function newInterval(floori, offseti, count, field) {
 "use strict";
 
 
-var bind = __webpack_require__(93);
+var bind = __webpack_require__(94);
 var isBuffer = __webpack_require__(181);
 
 /*global toString:true*/
@@ -8581,10 +8581,10 @@ module.exports = {
 
 
     var OrdinalScale = __webpack_require__(266);
-    var IntervalScale = __webpack_require__(54);
+    var IntervalScale = __webpack_require__(55);
     __webpack_require__(267);
     __webpack_require__(268);
-    var Scale = __webpack_require__(53);
+    var Scale = __webpack_require__(54);
 
     var numberUtil = __webpack_require__(3);
     var zrUtil = __webpack_require__(0);
@@ -11459,8 +11459,8 @@ var durationWeek = 6048e5;
 
 
 
-    var Group = __webpack_require__(51);
-    var componentUtil = __webpack_require__(71);
+    var Group = __webpack_require__(52);
+    var componentUtil = __webpack_require__(72);
     var clazzUtil = __webpack_require__(24);
     var modelUtil = __webpack_require__(4);
     var zrUtil = __webpack_require__(0);
@@ -13180,7 +13180,7 @@ var durationWeek = 6048e5;
 
 
 
-    var axisPointerModelHelper = __webpack_require__(56);
+    var axisPointerModelHelper = __webpack_require__(57);
 
     /**
      * Base class of AxisView.
@@ -13926,9 +13926,9 @@ var durationWeek = 6048e5;
 
     var curve = __webpack_require__(27);
     var vec2 = __webpack_require__(5);
-    var bbox = __webpack_require__(69);
+    var bbox = __webpack_require__(70);
     var BoundingRect = __webpack_require__(8);
-    var dpr = __webpack_require__(50).devicePixelRatio;
+    var dpr = __webpack_require__(51).devicePixelRatio;
 
     var CMD = {
         M: 1,
@@ -15257,7 +15257,7 @@ var durationWeek = 6048e5;
 
 
     var graphic = __webpack_require__(2);
-    var Symbol = __webpack_require__(74);
+    var Symbol = __webpack_require__(75);
 
     /**
      * @constructor
@@ -15392,7 +15392,7 @@ var durationWeek = 6048e5;
     var zrUtil = __webpack_require__(0);
     var echarts = __webpack_require__(1);
 
-    __webpack_require__(76);
+    __webpack_require__(77);
 
     __webpack_require__(279);
 
@@ -15520,7 +15520,7 @@ var durationWeek = 6048e5;
 
 
     var echarts = __webpack_require__(1);
-    var axisPointerModelHelper = __webpack_require__(56);
+    var axisPointerModelHelper = __webpack_require__(57);
     var axisTrigger = __webpack_require__(401);
     var zrUtil = __webpack_require__(0);
 
@@ -15579,7 +15579,7 @@ var durationWeek = 6048e5;
     var env = __webpack_require__(11);
     var echarts = __webpack_require__(1);
     var modelUtil = __webpack_require__(4);
-    var helper = __webpack_require__(87);
+    var helper = __webpack_require__(88);
     var AxisProxy = __webpack_require__(455);
     var each = zrUtil.each;
     var eachAxisDim = helper.eachAxisDim;
@@ -16122,7 +16122,7 @@ var durationWeek = 6048e5;
 
 
 
-    var ComponentView = __webpack_require__(72);
+    var ComponentView = __webpack_require__(73);
 
     module.exports = ComponentView.extend({
 
@@ -16195,6 +16195,18 @@ var durationWeek = 6048e5;
 
 /***/ }),
 /* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Created by MBENBEN on 2017/6/29.
+ */
+var d3T=__webpack_require__(200);
+module.exports=function (time,formatStr) {
+    return d3T.timeFormat(formatStr)(time);
+}
+
+/***/ }),
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -16468,7 +16480,7 @@ var durationWeek = 6048e5;
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports) {
 
 
@@ -16500,7 +16512,7 @@ var durationWeek = 6048e5;
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -16822,7 +16834,7 @@ var durationWeek = 6048e5;
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports) {
 
 
@@ -16853,7 +16865,7 @@ var durationWeek = 6048e5;
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -17016,7 +17028,7 @@ var durationWeek = 6048e5;
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -17028,7 +17040,7 @@ var durationWeek = 6048e5;
 
     var numberUtil = __webpack_require__(3);
     var formatUtil = __webpack_require__(6);
-    var Scale = __webpack_require__(53);
+    var Scale = __webpack_require__(54);
     var helper = __webpack_require__(122);
 
     var roundNumber = numberUtil.round;
@@ -17225,7 +17237,7 @@ var durationWeek = 6048e5;
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -17288,7 +17300,7 @@ var durationWeek = 6048e5;
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -17626,7 +17638,7 @@ var durationWeek = 6048e5;
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports) {
 
 
@@ -17654,7 +17666,7 @@ var durationWeek = 6048e5;
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -17955,7 +17967,7 @@ var durationWeek = 6048e5;
 
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -18165,7 +18177,7 @@ var durationWeek = 6048e5;
 
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18291,7 +18303,7 @@ var durationWeek = 6048e5;
 
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18520,7 +18532,7 @@ var durationWeek = 6048e5;
 
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -18675,7 +18687,7 @@ var durationWeek = 6048e5;
 
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18698,10 +18710,10 @@ function getDefaultAdapter() {
   var adapter;
   if (typeof XMLHttpRequest !== 'undefined') {
     // For browsers use XHR adapter
-    adapter = __webpack_require__(95);
+    adapter = __webpack_require__(96);
   } else if (typeof process !== 'undefined') {
     // For node use HTTP adapter
-    adapter = __webpack_require__(95);
+    adapter = __webpack_require__(96);
   }
   return adapter;
 }
@@ -18772,10 +18784,10 @@ utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
 
 module.exports = defaults;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(94)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(95)))
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18798,10 +18810,10 @@ var basicParam = exports.basicParam = { //服务器交互基本参数
     oper: "127.0.0.1"
 };
 
-var TIME_DELAY = exports.TIME_DELAY = 10 * 60 * 1000;
+var TIME_DELAY = exports.TIME_DELAY = 1 * 60 * 1000;
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -18810,7 +18822,7 @@ var TIME_DELAY = exports.TIME_DELAY = 10 * 60 * 1000;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return utcFormat; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return utcParse; });
 /* harmony export (immutable) */ __webpack_exports__["a"] = defaultLocale;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__locale__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__locale__ = __webpack_require__(100);
 
 
 var locale;
@@ -18841,7 +18853,7 @@ function defaultLocale(definition) {
 
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -18900,7 +18912,7 @@ __webpack_require__(497);
 
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19169,11 +19181,11 @@ __webpack_require__(497);
 
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-        var config = __webpack_require__(50);
+        var config = __webpack_require__(51);
 
         /**
          * @exports zrender/tool/log
@@ -19207,7 +19219,7 @@ __webpack_require__(497);
 
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -19443,7 +19455,7 @@ __webpack_require__(497);
 
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -19453,7 +19465,7 @@ __webpack_require__(497);
 
 
 
-    var Displayable = __webpack_require__(49);
+    var Displayable = __webpack_require__(50);
     var BoundingRect = __webpack_require__(8);
     var zrUtil = __webpack_require__(0);
 
@@ -19607,7 +19619,7 @@ __webpack_require__(497);
 
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -19788,13 +19800,13 @@ __webpack_require__(497);
 
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
 
-    var Group = __webpack_require__(51);
-    var componentUtil = __webpack_require__(71);
+    var Group = __webpack_require__(52);
+    var componentUtil = __webpack_require__(72);
     var clazzUtil = __webpack_require__(24);
 
     var Component = function () {
@@ -19840,7 +19852,7 @@ __webpack_require__(497);
 
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports) {
 
 // https://github.com/mziccard/node-timsort
@@ -20521,7 +20533,7 @@ __webpack_require__(497);
 
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -20807,7 +20819,7 @@ __webpack_require__(497);
 
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports) {
 
 
@@ -20847,7 +20859,7 @@ __webpack_require__(497);
 
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -21464,7 +21476,7 @@ var factory = exports;
 
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21789,7 +21801,7 @@ var factory = exports;
 
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -21859,7 +21871,7 @@ var factory = exports;
 
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports) {
 
 // Pick color from palette for each data item.
@@ -21910,7 +21922,7 @@ var factory = exports;
 
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -21922,7 +21934,7 @@ var factory = exports;
 
     var BoundingRect = __webpack_require__(8);
 
-    var bbox = __webpack_require__(69);
+    var bbox = __webpack_require__(70);
     var vec2 = __webpack_require__(5);
 
     /**
@@ -22074,7 +22086,7 @@ var factory = exports;
 
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports) {
 
 
@@ -22101,7 +22113,7 @@ var factory = exports;
 
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -22110,7 +22122,7 @@ var factory = exports;
 
 
     var graphic = __webpack_require__(2);
-    var LineGroup = __webpack_require__(83);
+    var LineGroup = __webpack_require__(84);
 
 
     function isPointNaN(pt) {
@@ -22200,7 +22212,7 @@ var factory = exports;
 
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -22572,7 +22584,7 @@ var factory = exports;
 
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -23571,7 +23583,7 @@ var factory = exports;
 
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23582,7 +23594,7 @@ var factory = exports;
     var clazzUtil = __webpack_require__(24);
     var graphic = __webpack_require__(2);
     var get = __webpack_require__(4).makeGetter();
-    var axisPointerModelHelper = __webpack_require__(56);
+    var axisPointerModelHelper = __webpack_require__(57);
     var eventTool = __webpack_require__(26);
     var throttle = __webpack_require__(37);
 
@@ -24120,7 +24132,7 @@ var factory = exports;
 
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // TODO Axis scale
@@ -24271,7 +24283,7 @@ var factory = exports;
 
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -24409,7 +24421,7 @@ var factory = exports;
 
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -24547,7 +24559,7 @@ var factory = exports;
 
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -24751,7 +24763,7 @@ var factory = exports;
 
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -24793,7 +24805,7 @@ var factory = exports;
 
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24817,7 +24829,7 @@ window.jQuery = _jquery2.default;
 exports.default = _jquery2.default;
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24856,7 +24868,7 @@ var _axios = __webpack_require__(179);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _config = __webpack_require__(64);
+var _config = __webpack_require__(65);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24893,7 +24905,7 @@ function getApiUrl() {
 }
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24911,7 +24923,7 @@ module.exports = function bind(fn, thisArg) {
 
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -25101,7 +25113,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25112,7 +25124,7 @@ var settle = __webpack_require__(184);
 var buildURL = __webpack_require__(186);
 var parseHeaders = __webpack_require__(187);
 var isURLSameOrigin = __webpack_require__(188);
-var createError = __webpack_require__(96);
+var createError = __webpack_require__(97);
 var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(189);
 
 module.exports = function xhrAdapter(config) {
@@ -25286,10 +25298,10 @@ module.exports = function xhrAdapter(config) {
   });
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(94)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(95)))
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25314,7 +25326,7 @@ module.exports = function createError(message, config, code, request, response) 
 
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25326,7 +25338,7 @@ module.exports = function isCancel(value) {
 
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25352,115 +25364,12 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 99 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = function anonymous(locals, filters, escape, rethrow) {
-    escape = escape || function(html) {
-        return String(html).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/'/g, "&#39;").replace(/"/g, "&quot;");
-    };
-    var __stack = {
-        lineno: 1,
-        input: '<div class="logo">\r\n    <img src="<%= require("../../../static/img/logo.png") %>" alt="">\r\n</div>\r\n<div class="text">\r\n    浙二好医生\r\n    <% for(var d in list){ %>\r\n    <a class="<% if(env == d){ %>current<% } %>"\r\n       href="<%= makeUrl($.extend({}, options, {query: {env: d}})) %>"><%= list[d].name %></a>\r\n    <% } %>\r\n</div>\r\n<div class="time module-time"></div>',
-        filename: "."
-    };
-    function rethrow(err, str, filename, lineno) {
-        var lines = str.split("\n"), start = Math.max(lineno - 3, 0), end = Math.min(lines.length, lineno + 3);
-        var context = lines.slice(start, end).map(function(line, i) {
-            var curr = i + start + 1;
-            return (curr == lineno ? " >> " : "    ") + curr + "| " + line;
-        }).join("\n");
-        err.path = filename;
-        err.message = (filename || "ejs") + ":" + lineno + "\n" + context + "\n\n" + err.message;
-        throw err;
-    }
-    try {
-        var buf = [];
-        with (locals || {}) {
-            (function() {
-                buf.push('<div class="logo">\n    <img src="', escape((__stack.lineno = 2, __webpack_require__(200))), '" alt="">\n</div>\n<div class="text">\n    浙二好医生\n    ');
-                __stack.lineno = 6;
-                for (var d in list) {
-                    buf.push('\n    <a class="');
-                    __stack.lineno = 7;
-                    if (env == d) {
-                        buf.push("current");
-                        __stack.lineno = 7;
-                    }
-                    buf.push('"\n       href="', escape((__stack.lineno = 8, makeUrl($.extend({}, options, {
-                        query: {
-                            env: d
-                        }
-                    })))), '">', escape((__stack.lineno = 8, list[d].name)), "</a>\n    ");
-                    __stack.lineno = 9;
-                }
-                buf.push('\n</div>\n<div class="time module-time"></div>');
-            })();
-        }
-        return buf.join("");
-    } catch (err) {
-        rethrow(err, __stack.input, __stack.filename, __stack.lineno);
-    }
-}
-
-/***/ }),
 /* 100 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _tpl = __webpack_require__(201);
-
-var _tpl2 = _interopRequireDefault(_tpl);
-
-var _lmwTimeFormat = __webpack_require__(101);
-
-var _lmwTimeFormat2 = _interopRequireDefault(_lmwTimeFormat);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-/**
- * Created by Administrator on 2017/7/14 0014.
- */
-var showtime = function showtime() {
-    var time = new Date().getTime();
-    return (0, _lmwTimeFormat2.default)(time, "%Y-%m-%d %H:%M:%S") + " 星期" + ["日", "一", "二", "三", "四", "五", "六"][(0, _lmwTimeFormat2.default)(time, "%w")];
-};
-
-exports.default = function (options) {
-    $(".module-time").each(function (i, o) {
-        setInterval(function () {
-            $(o).html((0, _tpl2.default)({
-                time: showtime()
-            }));
-        }, 1000);
-    });
-};
-
-/***/ }),
-/* 101 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/**
- * Created by MBENBEN on 2017/6/29.
- */
-var d3T=__webpack_require__(202);
-module.exports=function (time,formatStr) {
-    return d3T.timeFormat(formatStr)(time);
-}
-
-/***/ }),
-/* 102 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = formatLocale;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_d3_time__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_d3_time__ = __webpack_require__(201);
 
 
 function localDate(d) {
@@ -25993,12 +25902,12 @@ function formatLiteralPercent() {
 
 
 /***/ }),
-/* 103 */
+/* 101 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return isoSpecifier; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__defaultLocale__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__defaultLocale__ = __webpack_require__(66);
 
 
 var isoSpecifier = "%Y-%m-%dT%H:%M:%S.%LZ";
@@ -26013,6 +25922,97 @@ var formatIso = Date.prototype.toISOString
 
 /* harmony default export */ __webpack_exports__["a"] = (formatIso);
 
+
+/***/ }),
+/* 102 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = function anonymous(locals, filters, escape, rethrow) {
+    escape = escape || function(html) {
+        return String(html).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/'/g, "&#39;").replace(/"/g, "&quot;");
+    };
+    var __stack = {
+        lineno: 1,
+        input: '<div class="logo">\r\n    <img src="<%= require("../../../static/img/logo.png") %>" alt="">\r\n</div>\r\n<div class="text">\r\n    浙二好医生\r\n    <% for(var d in list){ %>\r\n    <a class="<% if(env == d){ %>current<% } %>"\r\n       href="<%= makeUrl($.extend({}, options, {query: {env: d}})) %>"><%= list[d].name %></a>\r\n    <% } %>\r\n</div>\r\n<div class="time module-time"></div>',
+        filename: "."
+    };
+    function rethrow(err, str, filename, lineno) {
+        var lines = str.split("\n"), start = Math.max(lineno - 3, 0), end = Math.min(lines.length, lineno + 3);
+        var context = lines.slice(start, end).map(function(line, i) {
+            var curr = i + start + 1;
+            return (curr == lineno ? " >> " : "    ") + curr + "| " + line;
+        }).join("\n");
+        err.path = filename;
+        err.message = (filename || "ejs") + ":" + lineno + "\n" + context + "\n\n" + err.message;
+        throw err;
+    }
+    try {
+        var buf = [];
+        with (locals || {}) {
+            (function() {
+                buf.push('<div class="logo">\n    <img src="', escape((__stack.lineno = 2, __webpack_require__(217))), '" alt="">\n</div>\n<div class="text">\n    浙二好医生\n    ');
+                __stack.lineno = 6;
+                for (var d in list) {
+                    buf.push('\n    <a class="');
+                    __stack.lineno = 7;
+                    if (env == d) {
+                        buf.push("current");
+                        __stack.lineno = 7;
+                    }
+                    buf.push('"\n       href="', escape((__stack.lineno = 8, makeUrl($.extend({}, options, {
+                        query: {
+                            env: d
+                        }
+                    })))), '">', escape((__stack.lineno = 8, list[d].name)), "</a>\n    ");
+                    __stack.lineno = 9;
+                }
+                buf.push('\n</div>\n<div class="time module-time"></div>');
+            })();
+        }
+        return buf.join("");
+    } catch (err) {
+        rethrow(err, __stack.input, __stack.filename, __stack.lineno);
+    }
+}
+
+/***/ }),
+/* 103 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _tpl = __webpack_require__(218);
+
+var _tpl2 = _interopRequireDefault(_tpl);
+
+var _lmwTimeFormat = __webpack_require__(49);
+
+var _lmwTimeFormat2 = _interopRequireDefault(_lmwTimeFormat);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * Created by Administrator on 2017/7/14 0014.
+ */
+var showtime = function showtime() {
+    var time = new Date().getTime();
+    return (0, _lmwTimeFormat2.default)(time, "%Y-%m-%d %H:%M:%S") + " 星期" + ["日", "一", "二", "三", "四", "五", "六"][(0, _lmwTimeFormat2.default)(time, "%w")];
+};
+
+exports.default = function (options) {
+    $(".module-time").each(function (i, o) {
+        setInterval(function () {
+            $(o).html((0, _tpl2.default)({
+                time: showtime()
+            }));
+        }, 1000);
+    });
+};
 
 /***/ }),
 /* 104 */
@@ -26381,7 +26381,7 @@ module.exports = g;
 
     var guid = __webpack_require__(107);
     var Eventful = __webpack_require__(32);
-    var Transformable = __webpack_require__(67);
+    var Transformable = __webpack_require__(68);
     var Animatable = __webpack_require__(228);
     var zrUtil = __webpack_require__(0);
 
@@ -27848,7 +27848,7 @@ module.exports = g;
 
 
 
-    var Displayable = __webpack_require__(49);
+    var Displayable = __webpack_require__(50);
     var zrUtil = __webpack_require__(0);
     var textContain = __webpack_require__(23);
 
@@ -28031,7 +28031,7 @@ module.exports = g;
 
     var zrUtil = __webpack_require__(0);
 
-    var Gradient = __webpack_require__(52);
+    var Gradient = __webpack_require__(53);
 
     /**
      * x, y, x2, y2 are all percent from 0 to 1
@@ -28998,7 +28998,7 @@ module.exports = g;
 
     var ComponentModel = __webpack_require__(12);
     var zrUtil = __webpack_require__(0);
-    var axisModelCreator = __webpack_require__(55);
+    var axisModelCreator = __webpack_require__(56);
 
     var AxisModel = ComponentModel.extend({
 
@@ -29497,7 +29497,7 @@ module.exports = g;
 
     var zrUtil = __webpack_require__(0);
 
-    var Region = __webpack_require__(80);
+    var Region = __webpack_require__(81);
 
     function decode(json) {
         if (!json.UTF8Encoding) {
@@ -29676,7 +29676,7 @@ module.exports = g;
     var vector = __webpack_require__(5);
     var matrix = __webpack_require__(18);
 
-    var Transformable = __webpack_require__(67);
+    var Transformable = __webpack_require__(68);
     var zrUtil = __webpack_require__(0);
 
     var BoundingRect = __webpack_require__(8);
@@ -29973,9 +29973,9 @@ module.exports = g;
  */
 
 
-    var RoamController = __webpack_require__(59);
+    var RoamController = __webpack_require__(60);
     var roamHelper = __webpack_require__(136);
-    var cursorHelper = __webpack_require__(81);
+    var cursorHelper = __webpack_require__(82);
     var graphic = __webpack_require__(2);
     var zrUtil = __webpack_require__(0);
 
@@ -31071,7 +31071,7 @@ module.exports = g;
 
 
 
-    var cursorHelper = __webpack_require__(81);
+    var cursorHelper = __webpack_require__(82);
     var BoundingRect = __webpack_require__(8);
     var graphicUtil = __webpack_require__(2);
 
@@ -31233,7 +31233,7 @@ module.exports = g;
 
 
     var graphic = __webpack_require__(2);
-    var Line = __webpack_require__(83);
+    var Line = __webpack_require__(84);
     var zrUtil = __webpack_require__(0);
     var symbolUtil = __webpack_require__(20);
     var vec2 = __webpack_require__(5);
@@ -31801,8 +31801,8 @@ module.exports = g;
 
 
     var graphic = __webpack_require__(2);
-    var BaseAxisPointer = __webpack_require__(85);
-    var viewHelper = __webpack_require__(61);
+    var BaseAxisPointer = __webpack_require__(86);
+    var viewHelper = __webpack_require__(62);
     var cartesianAxisHelper = __webpack_require__(127);
     var AxisView = __webpack_require__(34);
 
@@ -32531,7 +32531,7 @@ module.exports = g;
 
 
     var zrUtil = __webpack_require__(0);
-    var helper = __webpack_require__(87);
+    var helper = __webpack_require__(88);
     var echarts = __webpack_require__(1);
 
 
@@ -32655,7 +32655,7 @@ module.exports = g;
 
 
     var echarts = __webpack_require__(1);
-    var visualSolution = __webpack_require__(62);
+    var visualSolution = __webpack_require__(63);
     var VisualMapping = __webpack_require__(35);
     var zrUtil = __webpack_require__(0);
 
@@ -32749,7 +32749,7 @@ module.exports = g;
     var env = __webpack_require__(11);
     var visualDefault = __webpack_require__(164);
     var VisualMapping = __webpack_require__(35);
-    var visualSolution = __webpack_require__(62);
+    var visualSolution = __webpack_require__(63);
     var mapVisual = VisualMapping.mapVisual;
     var modelUtil = __webpack_require__(4);
     var eachVisual = VisualMapping.eachVisual;
@@ -34817,14 +34817,11 @@ exports.default = function (selector, tplFun) {
     if (initStatus && initStatus == 1) {
         return;
     }
-
-    interval = setInterval(function () {
-        var data = $(el).data("data");
-        var refresh = $(el).data("refresh");
-        if (refresh && refresh == 1) {
-            init(el, data, tplFun);
-        }
-    }, 1000);
+    var data = $(el).data("data");
+    var refresh = $(el).data("refresh");
+    if (refresh && refresh == 1) {
+        init(el, data, tplFun);
+    }
 };
 
 var init = function init(el, data, tplFun) {
@@ -34838,39 +34835,35 @@ var init = function init(el, data, tplFun) {
     });
     var h = $(el).css("height");
     $(el).html(html);
+
     var lis = $("ul", $(el)).html();
     $("ul", $(el)).html(lis + lis);
     el.dataset.pos = 0;
     $("ul li", $(el)).css("height", parseInt(h) / 5 + "px");
-
+    var scrollHeight = $("ul li", $(el)).length * (parseInt(h) / 5);
     var initStatus = $(el).data("initStatus");
     if (initStatus) {
         return;
     }
     if (timer) {
         clearInterval(timer);
+        timer = null;
     }
-
     //console.log($(el).find("ul"));
     timer = setInterval(function (res) {
         $(el).data("initStatus", 1);
         var pos = parseInt(el.dataset.pos);
         pos++;
-        if (pos > parseInt(h)) {
+        if (pos > parseInt(scrollHeight / 2)) {
             pos = 0;
         }
         el.dataset.pos = pos;
         $(el).find("ul").css("transform", "translate(0px," + (0 - pos) + "px)");
         $(el).find("ul li").each(function (index, li) {
             var top = $(li).position().top;
-            var progress = top / (36 * 3);
-            if (top > 36 * 3) {
-                $(li).css("opacity", 1);
-            } else {
-                $(li).css("opacity", progress.toFixed(2));
-            }
+            $(li).attr("data-top", top).css("opacity", top / (parseInt(h) / 5) * 2);
         });
-    }, 50);
+    }, 100);
 };
 
 /***/ }),
@@ -45213,9 +45206,9 @@ module.exports = __webpack_require__(180);
 
 
 var utils = __webpack_require__(16);
-var bind = __webpack_require__(93);
+var bind = __webpack_require__(94);
 var Axios = __webpack_require__(182);
-var defaults = __webpack_require__(63);
+var defaults = __webpack_require__(64);
 
 /**
  * Create an instance of Axios
@@ -45248,9 +45241,9 @@ axios.create = function create(instanceConfig) {
 };
 
 // Expose Cancel & CancelToken
-axios.Cancel = __webpack_require__(98);
+axios.Cancel = __webpack_require__(99);
 axios.CancelToken = __webpack_require__(196);
-axios.isCancel = __webpack_require__(97);
+axios.isCancel = __webpack_require__(98);
 
 // Expose all/spread
 axios.all = function all(promises) {
@@ -45298,7 +45291,7 @@ function isSlowBuffer (obj) {
 "use strict";
 
 
-var defaults = __webpack_require__(63);
+var defaults = __webpack_require__(64);
 var utils = __webpack_require__(16);
 var InterceptorManager = __webpack_require__(191);
 var dispatchRequest = __webpack_require__(192);
@@ -45410,7 +45403,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 "use strict";
 
 
-var createError = __webpack_require__(96);
+var createError = __webpack_require__(97);
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -45829,8 +45822,8 @@ module.exports = InterceptorManager;
 
 var utils = __webpack_require__(16);
 var transformData = __webpack_require__(193);
-var isCancel = __webpack_require__(97);
-var defaults = __webpack_require__(63);
+var isCancel = __webpack_require__(98);
+var defaults = __webpack_require__(64);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -45982,7 +45975,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 "use strict";
 
 
-var Cancel = __webpack_require__(98);
+var Cancel = __webpack_require__(99);
 
 /**
  * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -46077,63 +46070,21 @@ module.exports = function spread(callback) {
 /* 198 */,
 /* 199 */,
 /* 200 */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,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"
-
-/***/ }),
-/* 201 */
-/***/ (function(module, exports) {
-
-module.exports = function anonymous(locals, filters, escape, rethrow) {
-    escape = escape || function(html) {
-        return String(html).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/'/g, "&#39;").replace(/"/g, "&quot;");
-    };
-    var __stack = {
-        lineno: 1,
-        input: '<font>&#xe6f0;</font>\r\n<span class="text"><%= time %></span>',
-        filename: "."
-    };
-    function rethrow(err, str, filename, lineno) {
-        var lines = str.split("\n"), start = Math.max(lineno - 3, 0), end = Math.min(lines.length, lineno + 3);
-        var context = lines.slice(start, end).map(function(line, i) {
-            var curr = i + start + 1;
-            return (curr == lineno ? " >> " : "    ") + curr + "| " + line;
-        }).join("\n");
-        err.path = filename;
-        err.message = (filename || "ejs") + ":" + lineno + "\n" + context + "\n\n" + err.message;
-        throw err;
-    }
-    try {
-        var buf = [];
-        with (locals || {}) {
-            (function() {
-                buf.push('<font>&#xe6f0;</font>\n<span class="text">', escape((__stack.lineno = 2, time)), "</span>");
-            })();
-        }
-        return buf.join("");
-    } catch (err) {
-        rethrow(err, __stack.input, __stack.filename, __stack.lineno);
-    }
-}
-
-/***/ }),
-/* 202 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_defaultLocale__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_defaultLocale__ = __webpack_require__(66);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "timeFormatDefaultLocale", function() { return __WEBPACK_IMPORTED_MODULE_0__src_defaultLocale__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "timeFormat", function() { return __WEBPACK_IMPORTED_MODULE_0__src_defaultLocale__["b"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "timeParse", function() { return __WEBPACK_IMPORTED_MODULE_0__src_defaultLocale__["c"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "utcFormat", function() { return __WEBPACK_IMPORTED_MODULE_0__src_defaultLocale__["d"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "utcParse", function() { return __WEBPACK_IMPORTED_MODULE_0__src_defaultLocale__["e"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__src_locale__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__src_locale__ = __webpack_require__(100);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "timeFormatLocale", function() { return __WEBPACK_IMPORTED_MODULE_1__src_locale__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__src_isoFormat__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__src_isoFormat__ = __webpack_require__(101);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "isoFormat", function() { return __WEBPACK_IMPORTED_MODULE_2__src_isoFormat__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__src_isoParse__ = __webpack_require__(218);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__src_isoParse__ = __webpack_require__(216);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "isoParse", function() { return __WEBPACK_IMPORTED_MODULE_3__src_isoParse__["a"]; });
 
 
@@ -46142,32 +46093,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /***/ }),
-/* 203 */
+/* 201 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__src_interval__ = __webpack_require__(15);
 /* unused harmony reexport timeInterval */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__src_millisecond__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__src_millisecond__ = __webpack_require__(202);
 /* unused harmony reexport timeMillisecond */
 /* unused harmony reexport timeMilliseconds */
 /* unused harmony reexport utcMillisecond */
 /* unused harmony reexport utcMilliseconds */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__src_second__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__src_second__ = __webpack_require__(203);
 /* unused harmony reexport timeSecond */
 /* unused harmony reexport timeSeconds */
 /* unused harmony reexport utcSecond */
 /* unused harmony reexport utcSeconds */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__src_minute__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__src_minute__ = __webpack_require__(204);
 /* unused harmony reexport timeMinute */
 /* unused harmony reexport timeMinutes */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__src_hour__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__src_hour__ = __webpack_require__(205);
 /* unused harmony reexport timeHour */
 /* unused harmony reexport timeHours */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__src_day__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__src_day__ = __webpack_require__(206);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_5__src_day__["a"]; });
 /* unused harmony reexport timeDays */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__src_week__ = __webpack_require__(209);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__src_week__ = __webpack_require__(207);
 /* unused harmony reexport timeWeek */
 /* unused harmony reexport timeWeeks */
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_6__src_week__["b"]; });
@@ -46184,22 +46135,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* unused harmony reexport timeFridays */
 /* unused harmony reexport timeSaturday */
 /* unused harmony reexport timeSaturdays */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__src_month__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__src_month__ = __webpack_require__(208);
 /* unused harmony reexport timeMonth */
 /* unused harmony reexport timeMonths */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__src_year__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__src_year__ = __webpack_require__(209);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_8__src_year__["a"]; });
 /* unused harmony reexport timeYears */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__src_utcMinute__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__src_utcMinute__ = __webpack_require__(210);
 /* unused harmony reexport utcMinute */
 /* unused harmony reexport utcMinutes */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__src_utcHour__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__src_utcHour__ = __webpack_require__(211);
 /* unused harmony reexport utcHour */
 /* unused harmony reexport utcHours */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__src_utcDay__ = __webpack_require__(214);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__src_utcDay__ = __webpack_require__(212);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_11__src_utcDay__["a"]; });
 /* unused harmony reexport utcDays */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__src_utcWeek__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__src_utcWeek__ = __webpack_require__(213);
 /* unused harmony reexport utcWeek */
 /* unused harmony reexport utcWeeks */
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_12__src_utcWeek__["b"]; });
@@ -46216,10 +46167,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* unused harmony reexport utcFridays */
 /* unused harmony reexport utcSaturday */
 /* unused harmony reexport utcSaturdays */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__src_utcMonth__ = __webpack_require__(216);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__src_utcMonth__ = __webpack_require__(214);
 /* unused harmony reexport utcMonth */
 /* unused harmony reexport utcMonths */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__src_utcYear__ = __webpack_require__(217);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__src_utcYear__ = __webpack_require__(215);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_14__src_utcYear__["a"]; });
 /* unused harmony reexport utcYears */
 
@@ -46254,7 +46205,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /***/ }),
-/* 204 */
+/* 202 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -46289,7 +46240,7 @@ var milliseconds = millisecond.range;
 
 
 /***/ }),
-/* 205 */
+/* 203 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -46314,7 +46265,7 @@ var seconds = second.range;
 
 
 /***/ }),
-/* 206 */
+/* 204 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -46339,7 +46290,7 @@ var minutes = minute.range;
 
 
 /***/ }),
-/* 207 */
+/* 205 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -46366,7 +46317,7 @@ var hours = hour.range;
 
 
 /***/ }),
-/* 208 */
+/* 206 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -46391,7 +46342,7 @@ var days = day.range;
 
 
 /***/ }),
-/* 209 */
+/* 207 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -46443,7 +46394,7 @@ var saturdays = saturday.range;
 
 
 /***/ }),
-/* 210 */
+/* 208 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -46467,7 +46418,7 @@ var months = month.range;
 
 
 /***/ }),
-/* 211 */
+/* 209 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -46502,7 +46453,7 @@ var years = year.range;
 
 
 /***/ }),
-/* 212 */
+/* 210 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -46527,7 +46478,7 @@ var utcMinutes = utcMinute.range;
 
 
 /***/ }),
-/* 213 */
+/* 211 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -46552,7 +46503,7 @@ var utcHours = utcHour.range;
 
 
 /***/ }),
-/* 214 */
+/* 212 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -46577,7 +46528,7 @@ var utcDays = utcDay.range;
 
 
 /***/ }),
-/* 215 */
+/* 213 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -46629,7 +46580,7 @@ var utcSaturdays = utcSaturday.range;
 
 
 /***/ }),
-/* 216 */
+/* 214 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -46653,7 +46604,7 @@ var utcMonths = utcMonth.range;
 
 
 /***/ }),
-/* 217 */
+/* 215 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -46688,12 +46639,12 @@ var utcYears = utcYear.range;
 
 
 /***/ }),
-/* 218 */
+/* 216 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__isoFormat__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__defaultLocale__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__isoFormat__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__defaultLocale__ = __webpack_require__(66);
 
 
 
@@ -46708,6 +46659,48 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
 /* harmony default export */ __webpack_exports__["a"] = (parseIso);
 
+
+/***/ }),
+/* 217 */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+/* 218 */
+/***/ (function(module, exports) {
+
+module.exports = function anonymous(locals, filters, escape, rethrow) {
+    escape = escape || function(html) {
+        return String(html).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/'/g, "&#39;").replace(/"/g, "&quot;");
+    };
+    var __stack = {
+        lineno: 1,
+        input: '<font>&#xe6f0;</font>\r\n<span class="text"><%= time %></span>',
+        filename: "."
+    };
+    function rethrow(err, str, filename, lineno) {
+        var lines = str.split("\n"), start = Math.max(lineno - 3, 0), end = Math.min(lines.length, lineno + 3);
+        var context = lines.slice(start, end).map(function(line, i) {
+            var curr = i + start + 1;
+            return (curr == lineno ? " >> " : "    ") + curr + "| " + line;
+        }).join("\n");
+        err.path = filename;
+        err.message = (filename || "ejs") + ":" + lineno + "\n" + context + "\n\n" + err.message;
+        throw err;
+    }
+    try {
+        var buf = [];
+        with (locals || {}) {
+            (function() {
+                buf.push('<font>&#xe6f0;</font>\n<span class="text">', escape((__stack.lineno = 2, time)), "</span>");
+            })();
+        }
+        return buf.join("");
+    } catch (err) {
+        rethrow(err, __stack.input, __stack.filename, __stack.lineno);
+    }
+}
 
 /***/ }),
 /* 219 */,
@@ -47970,7 +47963,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
     var isString = util.isString;
     var isFunction = util.isFunction;
     var isObject = util.isObject;
-    var log = __webpack_require__(68);
+    var log = __webpack_require__(69);
 
     /**
      * @alias modue:zrender/mixin/Animatable
@@ -50253,7 +50246,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
     var zrUtil = __webpack_require__(0);
 
-    var Gradient = __webpack_require__(52);
+    var Gradient = __webpack_require__(53);
 
     /**
      * x, y, r are all percent from 0 to 1
@@ -51314,11 +51307,11 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
     var util = __webpack_require__(0);
     var env = __webpack_require__(11);
 
-    var Group = __webpack_require__(51);
+    var Group = __webpack_require__(52);
 
     // Use timsort because in most case elements are partially sorted
     // https://jsfiddle.net/pissang/jr4x7mdm/8/
-    var timsort = __webpack_require__(73);
+    var timsort = __webpack_require__(74);
 
     function shapeCompareFunc(a, b) {
         if (a.zlevel === b.zlevel) {
@@ -52342,11 +52335,11 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
  */
  
 
-    var config = __webpack_require__(50);
+    var config = __webpack_require__(51);
     var util = __webpack_require__(0);
-    var log = __webpack_require__(68);
+    var log = __webpack_require__(69);
     var BoundingRect = __webpack_require__(8);
-    var timsort = __webpack_require__(73);
+    var timsort = __webpack_require__(74);
 
     var Layer = __webpack_require__(261);
 
@@ -53416,7 +53409,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
                 path.brush(ctx);
             }
 
-            var ImageShape = __webpack_require__(70);
+            var ImageShape = __webpack_require__(71);
             var imgShape = new ImageShape({
                 style: {
                     x: 0,
@@ -53456,7 +53449,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
 
     var util = __webpack_require__(0);
-    var config = __webpack_require__(50);
+    var config = __webpack_require__(51);
     var Style = __webpack_require__(105);
     var Pattern = __webpack_require__(115);
 
@@ -53685,7 +53678,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 /***/ (function(module, exports, __webpack_require__) {
 
 
-    var Gradient = __webpack_require__(52);
+    var Gradient = __webpack_require__(53);
     module.exports = function (ecModel) {
         function encodeColor(seriesModel) {
             var colorAccessPath = (seriesModel.visualColorAccessPath || 'itemStyle.normal.color').split('.');
@@ -54029,7 +54022,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
 
     var zrUtil = __webpack_require__(0);
-    var Scale = __webpack_require__(53);
+    var Scale = __webpack_require__(54);
 
     var scaleProto = Scale.prototype;
 
@@ -54147,7 +54140,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
     var formatUtil = __webpack_require__(6);
     var scaleHelper = __webpack_require__(122);
 
-    var IntervalScale = __webpack_require__(54);
+    var IntervalScale = __webpack_require__(55);
 
     var intervalScaleProto = IntervalScale.prototype;
 
@@ -54320,11 +54313,11 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
 
     var zrUtil = __webpack_require__(0);
-    var Scale = __webpack_require__(53);
+    var Scale = __webpack_require__(54);
     var numberUtil = __webpack_require__(3);
 
     // Use some method of IntervalScale
-    var IntervalScale = __webpack_require__(54);
+    var IntervalScale = __webpack_require__(55);
 
     var scaleProto = Scale.prototype;
     var intervalScaleProto = IntervalScale.prototype;
@@ -54598,7 +54591,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
         __webpack_require__(39), 'line', 'circle', 'line'
     ));
     echarts.registerLayout(zrUtil.curry(
-        __webpack_require__(75), 'line'
+        __webpack_require__(76), 'line'
     ));
 
     // Down sample after filter
@@ -54714,7 +54707,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
     var zrUtil = __webpack_require__(0);
     var SymbolDraw = __webpack_require__(43);
-    var Symbol = __webpack_require__(74);
+    var Symbol = __webpack_require__(75);
     var lineAnimationDiff = __webpack_require__(273);
     var graphic = __webpack_require__(2);
     var modelUtil = __webpack_require__(4);
@@ -56379,12 +56372,12 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
     var zrUtil = __webpack_require__(0);
 
-    __webpack_require__(76);
+    __webpack_require__(77);
 
     __webpack_require__(282);
     __webpack_require__(283);
 
-    var barLayoutGrid = __webpack_require__(77);
+    var barLayoutGrid = __webpack_require__(78);
     var echarts = __webpack_require__(1);
 
     echarts.registerLayout(zrUtil.curry(barLayoutGrid, 'bar'));
@@ -56761,13 +56754,13 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
         method: 'unSelect'
     }]);
 
-    echarts.registerVisual(zrUtil.curry(__webpack_require__(79), 'pie'));
+    echarts.registerVisual(zrUtil.curry(__webpack_require__(80), 'pie'));
 
     echarts.registerLayout(zrUtil.curry(
         __webpack_require__(288), 'pie'
     ));
 
-    echarts.registerProcessor(zrUtil.curry(__webpack_require__(57), 'pie'));
+    echarts.registerProcessor(zrUtil.curry(__webpack_require__(58), 'pie'));
 
 
 /***/ }),
@@ -56784,7 +56777,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
     var numberUtil = __webpack_require__(3);
     var completeDimensions = __webpack_require__(19);
 
-    var dataSelectableMixin = __webpack_require__(78);
+    var dataSelectableMixin = __webpack_require__(79);
 
     var PieSeries = __webpack_require__(1).extendSeriesModel({
 
@@ -57744,7 +57737,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
         __webpack_require__(39), 'scatter', 'circle', null
     ));
     echarts.registerLayout(zrUtil.curry(
-        __webpack_require__(75), 'scatter'
+        __webpack_require__(76), 'scatter'
     ));
 
     // In case developer forget to include grid component
@@ -58041,14 +58034,14 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
     __webpack_require__(300);
     __webpack_require__(301);
 
-    echarts.registerVisual(zrUtil.curry(__webpack_require__(79), 'radar'));
+    echarts.registerVisual(zrUtil.curry(__webpack_require__(80), 'radar'));
     echarts.registerVisual(zrUtil.curry(
         __webpack_require__(39), 'radar', 'circle', null
     ));
     echarts.registerLayout(__webpack_require__(302));
 
     echarts.registerProcessor(
-        zrUtil.curry(__webpack_require__(57), 'radar')
+        zrUtil.curry(__webpack_require__(58), 'radar')
     );
 
     echarts.registerPreprocessor(__webpack_require__(303));
@@ -58075,7 +58068,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
     var zrUtil = __webpack_require__(0);
     var IndicatorAxis = __webpack_require__(297);
-    var IntervalScale = __webpack_require__(54);
+    var IntervalScale = __webpack_require__(55);
     var numberUtil = __webpack_require__(3);
     var axisHelper = __webpack_require__(17);
 
@@ -59065,7 +59058,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
     __webpack_require__(137);
 
-    __webpack_require__(58);
+    __webpack_require__(59);
 
     echarts.registerLayout(__webpack_require__(312));
 
@@ -59105,9 +59098,9 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
     var encodeHTML = formatUtil.encodeHTML;
     var addCommas = formatUtil.addCommas;
 
-    var dataSelectableMixin = __webpack_require__(78);
+    var dataSelectableMixin = __webpack_require__(79);
 
-    var geoCreator = __webpack_require__(58);
+    var geoCreator = __webpack_require__(59);
 
     var MapSeries = SeriesModel.extend({
 
@@ -59614,7 +59607,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 // Fix for 南海诸岛
 
 
-    var Region = __webpack_require__(80);
+    var Region = __webpack_require__(81);
     var zrUtil = __webpack_require__(0);
 
     var geoCoord = [126, 25];
@@ -59722,7 +59715,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 // Fix for 钓鱼岛
 
 
-    var Region = __webpack_require__(80);
+    var Region = __webpack_require__(81);
     var zrUtil = __webpack_require__(0);
 
     var geoCoord = [126, 25];
@@ -60989,7 +60982,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
     var DataDiffer = __webpack_require__(42);
     var helper = __webpack_require__(40);
     var Breadcrumb = __webpack_require__(320);
-    var RoamController = __webpack_require__(59);
+    var RoamController = __webpack_require__(60);
     var BoundingRect = __webpack_require__(8);
     var matrix = __webpack_require__(18);
     var animationUtil = __webpack_require__(321);
@@ -63889,10 +63882,10 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
 
     var SymbolDraw = __webpack_require__(43);
-    var LineDraw = __webpack_require__(82);
-    var RoamController = __webpack_require__(59);
+    var LineDraw = __webpack_require__(83);
+    var RoamController = __webpack_require__(60);
     var roamHelper = __webpack_require__(136);
-    var cursorHelper = __webpack_require__(81);
+    var cursorHelper = __webpack_require__(82);
 
     var graphic = __webpack_require__(2);
     var adjustEdge = __webpack_require__(330);
@@ -65022,7 +65015,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
     // FIXME Where to create the simple view coordinate system
     var View = __webpack_require__(133);
     var layout = __webpack_require__(7);
-    var bbox = __webpack_require__(69);
+    var bbox = __webpack_require__(70);
 
     function getViewRect(seriesModel, api, aspect) {
         var option = seriesModel.getBoxLayoutParams();
@@ -65730,10 +65723,10 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
     __webpack_require__(345);
     __webpack_require__(346);
 
-    echarts.registerVisual(zrUtil.curry(__webpack_require__(79), 'funnel'));
+    echarts.registerVisual(zrUtil.curry(__webpack_require__(80), 'funnel'));
     echarts.registerLayout(__webpack_require__(347));
 
-    echarts.registerProcessor(zrUtil.curry(__webpack_require__(57), 'funnel'));
+    echarts.registerProcessor(zrUtil.curry(__webpack_require__(58), 'funnel'));
 
 
 /***/ }),
@@ -66992,7 +66985,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
     var ComponentModel = __webpack_require__(12);
     var zrUtil = __webpack_require__(0);
     var makeStyleMapper = __webpack_require__(41);
-    var axisModelCreator = __webpack_require__(55);
+    var axisModelCreator = __webpack_require__(56);
     var numberUtil = __webpack_require__(3);
 
     var AxisModel = ComponentModel.extend({
@@ -67171,7 +67164,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
     var zrUtil = __webpack_require__(0);
     var AxisBuilder = __webpack_require__(33);
-    var BrushController = __webpack_require__(84);
+    var BrushController = __webpack_require__(85);
     var brushHelper = __webpack_require__(146);
     var graphic = __webpack_require__(2);
 
@@ -68675,7 +68668,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
     var zrUtil = __webpack_require__(0);
     var SeriesModel = __webpack_require__(14);
-    var whiskerBoxCommon = __webpack_require__(60);
+    var whiskerBoxCommon = __webpack_require__(61);
 
     var BoxplotSeries = SeriesModel.extend({
 
@@ -68973,7 +68966,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
     var zrUtil = __webpack_require__(0);
     var ChartView = __webpack_require__(28);
     var graphic = __webpack_require__(2);
-    var whiskerBoxCommon = __webpack_require__(60);
+    var whiskerBoxCommon = __webpack_require__(61);
 
     var BoxplotView = ChartView.extend({
 
@@ -69289,7 +69282,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
     var zrUtil = __webpack_require__(0);
     var SeriesModel = __webpack_require__(14);
-    var whiskerBoxCommon = __webpack_require__(60);
+    var whiskerBoxCommon = __webpack_require__(61);
 
     var CandlestickSeries = SeriesModel.extend({
 
@@ -69380,7 +69373,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
     var zrUtil = __webpack_require__(0);
     var ChartView = __webpack_require__(28);
     var graphic = __webpack_require__(2);
-    var whiskerBoxCommon = __webpack_require__(60);
+    var whiskerBoxCommon = __webpack_require__(61);
 
     var CandlestickView = ChartView.extend({
 
@@ -69655,7 +69648,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
         __webpack_require__(39), 'effectScatter', 'circle', null
     ));
     echarts.registerLayout(zrUtil.curry(
-        __webpack_require__(75), 'effectScatter'
+        __webpack_require__(76), 'effectScatter'
     ));
 
 
@@ -69783,7 +69776,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
     var symbolUtil = __webpack_require__(20);
     var graphic = __webpack_require__(2);
     var numberUtil = __webpack_require__(3);
-    var Symbol = __webpack_require__(74);
+    var Symbol = __webpack_require__(75);
     var Group = graphic.Group;
 
     var EFFECT_RIPPLE_NUMBER = 3;
@@ -70191,9 +70184,9 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
 
 
-    var LineDraw = __webpack_require__(82);
+    var LineDraw = __webpack_require__(83);
     var EffectLine = __webpack_require__(148);
-    var Line = __webpack_require__(83);
+    var Line = __webpack_require__(84);
     var Polyline = __webpack_require__(149);
     var EffectPolyline = __webpack_require__(384);
     var LargeLineDraw = __webpack_require__(385);
@@ -71136,12 +71129,12 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
     var zrUtil = __webpack_require__(0);
 
-    __webpack_require__(76);
+    __webpack_require__(77);
 
     __webpack_require__(393);
     __webpack_require__(394);
 
-    var barLayoutGrid = __webpack_require__(77);
+    var barLayoutGrid = __webpack_require__(78);
     var echarts = __webpack_require__(1);
 
     echarts.registerLayout(zrUtil.curry(barLayoutGrid, 'pictorialBar'));
@@ -72004,7 +71997,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
     echarts.registerVisual(__webpack_require__(408));
 
     echarts.registerProcessor(
-        zrUtil.curry(__webpack_require__(57), 'themeRiver')
+        zrUtil.curry(__webpack_require__(58), 'themeRiver')
     );
 
 
@@ -72575,7 +72568,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
 
     var ComponentModel = __webpack_require__(12);
-    var axisModelCreator = __webpack_require__(55);
+    var axisModelCreator = __webpack_require__(56);
     var zrUtil =  __webpack_require__(0);
 
     var AxisModel = ComponentModel.extend({
@@ -72672,7 +72665,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
     var zrUtil = __webpack_require__(0);
     var modelUtil = __webpack_require__(4);
-    var modelHelper = __webpack_require__(56);
+    var modelHelper = __webpack_require__(57);
     var findPointFromSeries = __webpack_require__(152);
 
     var each = zrUtil.each;
@@ -73234,8 +73227,8 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
 
     var graphic = __webpack_require__(2);
-    var BaseAxisPointer = __webpack_require__(85);
-    var viewHelper = __webpack_require__(61);
+    var BaseAxisPointer = __webpack_require__(86);
+    var viewHelper = __webpack_require__(62);
     var singleAxisHelper = __webpack_require__(151);
     var AxisView = __webpack_require__(34);
 
@@ -74043,7 +74036,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
     var graphicUtil = __webpack_require__(2);
     var labelHelper = __webpack_require__(123);
     var createListFromArray = __webpack_require__(30);
-    var barGrid = __webpack_require__(77);
+    var barGrid = __webpack_require__(78);
 
     var ITEM_STYLE_NORMAL_PATH = ['itemStyle', 'normal'];
     var ITEM_STYLE_EMPHASIS_PATH = ['itemStyle', 'emphasis'];
@@ -75999,7 +75992,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
     var Model = __webpack_require__(9);
     var globalListener = __webpack_require__(153);
     var axisHelper = __webpack_require__(17);
-    var axisPointerViewHelper = __webpack_require__(61);
+    var axisPointerViewHelper = __webpack_require__(62);
 
     var bind = zrUtil.bind;
     var each = zrUtil.each;
@@ -77035,7 +77028,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
     var zrUtil = __webpack_require__(0);
 
-    __webpack_require__(86);
+    __webpack_require__(87);
     __webpack_require__(432);
     __webpack_require__(434);
     __webpack_require__(46);
@@ -77471,7 +77464,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
     var zrUtil = __webpack_require__(0);
     var ComponentModel = __webpack_require__(12);
-    var axisModelCreator = __webpack_require__(55);
+    var axisModelCreator = __webpack_require__(56);
 
     var PolarAxisModel = ComponentModel.extend({
 
@@ -77538,7 +77531,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
 
 
-    __webpack_require__(86);
+    __webpack_require__(87);
 
     __webpack_require__(433);
 
@@ -77788,7 +77781,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
 
 
-    __webpack_require__(86);
+    __webpack_require__(87);
 
     __webpack_require__(435);
 
@@ -77952,9 +77945,9 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
 
     var formatUtil = __webpack_require__(6);
-    var BaseAxisPointer = __webpack_require__(85);
+    var BaseAxisPointer = __webpack_require__(86);
     var graphic = __webpack_require__(2);
-    var viewHelper = __webpack_require__(61);
+    var viewHelper = __webpack_require__(62);
     var matrix = __webpack_require__(18);
     var AxisBuilder = __webpack_require__(33);
     var AxisView = __webpack_require__(34);
@@ -78394,7 +78387,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
     __webpack_require__(439);
 
-    __webpack_require__(58);
+    __webpack_require__(59);
 
     __webpack_require__(440);
 
@@ -78452,9 +78445,9 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
     var Model = __webpack_require__(9);
     var zrUtil = __webpack_require__(0);
 
-    var selectableMixin = __webpack_require__(78);
+    var selectableMixin = __webpack_require__(79);
 
-    var geoCreator = __webpack_require__(58);
+    var geoCreator = __webpack_require__(59);
 
     var GeoModel = ComponentModel.extend({
 
@@ -78763,7 +78756,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
 
     var echarts = __webpack_require__(1);
-    var visualSolution = __webpack_require__(62);
+    var visualSolution = __webpack_require__(63);
     var zrUtil = __webpack_require__(0);
     var BoundingRect = __webpack_require__(8);
     var selector = __webpack_require__(444);
@@ -79227,7 +79220,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
     var echarts = __webpack_require__(1);
     var zrUtil = __webpack_require__(0);
-    var visualSolution = __webpack_require__(62);
+    var visualSolution = __webpack_require__(63);
     var Model = __webpack_require__(9);
 
     var DEFAULT_OUT_OF_BRUSH_COLOR = ['#ddd'];
@@ -79375,7 +79368,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
 
     var zrUtil = __webpack_require__(0);
-    var BrushController = __webpack_require__(84);
+    var BrushController = __webpack_require__(85);
     var echarts = __webpack_require__(1);
 
     module.exports = echarts.extendComponentView({
@@ -81017,7 +81010,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
     var zrUtil = __webpack_require__(0);
     var numberUtil = __webpack_require__(3);
-    var helper = __webpack_require__(87);
+    var helper = __webpack_require__(88);
     var each = zrUtil.each;
     var asc = numberUtil.asc;
 
@@ -82635,7 +82628,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
     // components.
 
     var zrUtil = __webpack_require__(0);
-    var RoamController = __webpack_require__(59);
+    var RoamController = __webpack_require__(60);
     var throttle = __webpack_require__(37);
     var curry = zrUtil.curry;
 
@@ -84786,7 +84779,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
 
 
-    module.exports = __webpack_require__(88).extend({
+    module.exports = __webpack_require__(89).extend({
 
         type: 'markPoint',
 
@@ -84830,7 +84823,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
     var List = __webpack_require__(10);
 
-    var markerHelper = __webpack_require__(89);
+    var markerHelper = __webpack_require__(90);
 
     function updateMarkerLayout(mpData, seriesModel, api) {
         var coordSys = seriesModel.coordinateSystem;
@@ -84868,7 +84861,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
         });
     }
 
-    __webpack_require__(90).extend({
+    __webpack_require__(91).extend({
 
         type: 'markPoint',
 
@@ -84998,7 +84991,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
 
 
-    module.exports = __webpack_require__(88).extend({
+    module.exports = __webpack_require__(89).extend({
 
         type: 'markLine',
 
@@ -85047,9 +85040,9 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
     var List = __webpack_require__(10);
     var numberUtil = __webpack_require__(3);
 
-    var markerHelper = __webpack_require__(89);
+    var markerHelper = __webpack_require__(90);
 
-    var LineDraw = __webpack_require__(82);
+    var LineDraw = __webpack_require__(83);
 
     var markLineTransform = function (seriesModel, coordSys, mlModel, item) {
         var data = seriesModel.getData();
@@ -85219,7 +85212,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
         data.setItemLayout(idx, point);
     }
 
-    __webpack_require__(90).extend({
+    __webpack_require__(91).extend({
 
         type: 'markLine',
 
@@ -85416,7 +85409,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
 
 
-    module.exports = __webpack_require__(88).extend({
+    module.exports = __webpack_require__(89).extend({
 
         type: 'markArea',
 
@@ -85464,7 +85457,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
     var graphic = __webpack_require__(2);
     var colorUtil = __webpack_require__(25);
 
-    var markerHelper = __webpack_require__(89);
+    var markerHelper = __webpack_require__(90);
 
     var markAreaTransform = function (seriesModel, coordSys, maModel, item) {
         var lt = markerHelper.dataTransform(seriesModel, item[0]);
@@ -85584,7 +85577,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
     var dimPermutations = [['x0', 'y0'], ['x1', 'y0'], ['x1', 'y1'], ['x0', 'y1']];
 
-    __webpack_require__(90).extend({
+    __webpack_require__(91).extend({
 
         type: 'markArea',
 
@@ -86987,7 +86980,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
     // var zrUtil = require('zrender/lib/core/util');
     // var graphic = require('../../util/graphic');
-    var ComponentView = __webpack_require__(72);
+    var ComponentView = __webpack_require__(73);
 
     module.exports = ComponentView.extend({
 
@@ -88188,7 +88181,7 @@ var parseIso = +new Date("2000-01-01T00:00:00.000Z")
 
 
     var zrUtil = __webpack_require__(0);
-    var BrushController = __webpack_require__(84);
+    var BrushController = __webpack_require__(85);
     var BrushTargetManager = __webpack_require__(156);
     var history = __webpack_require__(168);
     var sliderMove = __webpack_require__(45);
@@ -88613,13 +88606,13 @@ if (!__webpack_require__(11).canvasSupported) {
     var colorTool = __webpack_require__(25);
     var textContain = __webpack_require__(23);
     var RectText = __webpack_require__(110);
-    var Displayable = __webpack_require__(49);
-    var ZImage = __webpack_require__(70);
+    var Displayable = __webpack_require__(50);
+    var ZImage = __webpack_require__(71);
     var Text = __webpack_require__(116);
     var Path = __webpack_require__(13);
     var PathProxy = __webpack_require__(36);
 
-    var Gradient = __webpack_require__(52);
+    var Gradient = __webpack_require__(53);
 
     var vmlCore = __webpack_require__(169);
 
@@ -89671,7 +89664,7 @@ if (!__webpack_require__(11).canvasSupported) {
 
 
 
-    var zrLog = __webpack_require__(68);
+    var zrLog = __webpack_require__(69);
     var vmlCore = __webpack_require__(169);
 
     function parseInt10(val) {
