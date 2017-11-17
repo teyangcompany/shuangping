@@ -21,7 +21,7 @@ function init() {
 
 
     let mySwiper = new Swiper(className, {
-        autoplay: 5000,//可选选项，自动滑动,
+        autoplay: 15000,//可选选项，自动滑动,
         effect: "cube",
         speed: 1500
     })
