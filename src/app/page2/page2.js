@@ -282,8 +282,8 @@ function data_api() {
         setOnline("month", clientServiceMonthCount);
 
         /*线上服务量-周*/
-        var clientRegisterWeekCount = res.obj.clientRegisterWeekCount;
-        setOnline("week", clientRegisterWeekCount);
+        var clientServiceWeekCount = res.obj.clientServiceWeekCount;
+        setOnline("week", clientServiceWeekCount);
 
         /*预约挂号趋势*/
         var dayBookCountList = res.obj.dayBookCountList;
