@@ -4,8 +4,10 @@
 <div class="text">
     浙二好医生
     <% for(var d in list){ %>
+    <% if(env == 'dev'){ %>
     <a class="<% if(env == d){ %>current<% } %>"
        href="<%= makeUrl($.extend({}, options, {query: {env: d}})) %>"><%= list[d].name %></a>
+    <% } %>
     <% } %>
 </div>
 <div class="time module-time"></div>
