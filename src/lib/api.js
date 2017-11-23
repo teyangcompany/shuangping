@@ -24,6 +24,8 @@ function getApiUrl() {
   }
 
 
+  console.log("env2", env);
+
   let api_url = "";
   for (let key in API_URL) {
     if (env == key) {

@@ -17,13 +17,15 @@ export function getParamsFromUrl(from) {
 
 export function getEnvFromUrl() {
   let hostname = window.location.host;
+  console.log("host", hostname);
+  let retkey = "prod";
   for (let key in API_URL) {
+    console.log("key3", key, API_URL[key].host);
     if (API_URL[key].host.indexOf(hostname) >= 0) {
-      return key;
+      retkey = key;
     }
   }
-  return "";
-
+  return 'prod'||retkey;
 }
 
 /**

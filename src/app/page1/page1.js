@@ -179,7 +179,7 @@ function area_api() {
     let cityServiceCountList = res.obj.cityServiceCountList;
     cityServiceCountList = cityServiceCountList.map((city) => {
       city.name = city.cityName
-      city.value = city.serviceCount
+      city.value = city.name == "杭州" ? city.serviceCount + TOTAL_1 : city.serviceCount
       return city
     });
     let qitaIndex = cityServiceCountList.findIndex((city) => {

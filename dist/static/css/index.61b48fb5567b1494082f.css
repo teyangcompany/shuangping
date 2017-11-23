@@ -1,0 +1,57 @@
+@font-face {
+  font-family: 'iconfont';
+  /* project id 353935 */
+  src: url("//at.alicdn.com/t/font_4t8k9eumlvpo80k9.eot");
+  src: url("//at.alicdn.com/t/font_4t8k9eumlvpo80k9.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/font_4t8k9eumlvpo80k9.woff") format("woff"), url("//at.alicdn.com/t/font_4t8k9eumlvpo80k9.ttf") format("truetype"), url("//at.alicdn.com/t/font_4t8k9eumlvpo80k9.svg#iconfont") format("svg"); }
+
+font {
+  font-family: "iconfont"; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+li {
+  list-style: none; }
+
+.oh {
+  overflow: hidden; }
+
+.fl {
+  float: left; }
+
+.fr {
+  float: right; }
+
+body {
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-image: url(/echarts/static/img/bjtp.png?6aa2ec3d035fa62bdd7a15437452bea4);
+  background-position: center; }
+
+header {
+  background-color: rgba(9, 36, 87, 0.5);
+  height: 35px;
+  overflow: hidden; }
+  header > div {
+    float: left; }
+  header .logo {
+    padding-top: 5px;
+    padding-left: 20px; }
+    header .logo img {
+      height: 25px; }
+  header > .text {
+    padding-left: 5px;
+    color: white;
+    line-height: 35px; }
+    header > .text a {
+      color: white; }
+      header > .text a.current {
+        color: #00ffff; }
+  header > .time {
+    float: right;
+    line-height: 35px;
+    margin-right: 20px;
+    color: white; }
+
+/*# sourceMappingURL=index.61b48fb5567b1494082f.css.map*/

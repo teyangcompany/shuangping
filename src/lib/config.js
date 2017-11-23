@@ -1,6 +1,7 @@
+let local = ['localhost:8080', 'nethosweb.diandianys.com'];
 export const API_URL = {
   "dev": {
-    host: ['localhost:8080', 'nethosweb.diandianys.com'],
+    host: local,
     api: "//nethos.diandianys.com/api/app",
     socekt: "//nethoswebsocket.diandianys.com",
     name: "开发环境"
@@ -12,8 +13,8 @@ export const API_URL = {
     name: "测试环境"
   },
   "prod": {
-    host: ["www.fangcow.com"],
-    api: "//api.fangcow.com/?action=index&service=gjwlyy",
+    host: ["www.gjwlyy.com"],
+    api: local.indexOf(location.host) >= 0 ? "//api.fangcow.com/?action=index&service=gjwlyy" : "//api.gjwlyy.com/api/app",
     socket: "socket.gjwlyy.com",
     name: "正式环境"
   }

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>运营数据</title>
+    <script src="./static/js/md5-min.js"></script>
+<script src="./static/js/sha512.min.js"></script>
+<script src="./static/js/url.min.js"></script>
+<link href="/echarts/static/css/commons.css" rel="stylesheet"><link href="/echarts/static/css/page2.61b48fb5567b1494082f.css" rel="stylesheet"></head>
+<body>
+<header></header>
+<div class="main">
+    <div class="oh part1">
+        <div class="fl wrap">
+            <div class="title">挂号预约量</div>
+            <ul class="oh yygh-total">
+                <li id="yygh-total" title="总数" class="fl module-pie1"></li>
+                <li id="yygh-mouth" title="本月新增" class="fl module-pie1"></li>
+                <li id="yygh-week" title="本周新增" class="fl module-pie1"></li>
+            </ul>
+        </div>
+        <div class="fl wrap">
+            <div class="title">线上服务量</div>
+            <ul class="oh online-total">
+                <li id="online-total" title="总数" class="fl module-pie1"></li>
+                <li id="online-month" title="本月新增" class="fl module-pie1"></li>
+                <li id="online-week" title="本周新增" class="fl module-pie1"></li>
+            </ul>
+        </div>
+        <div class="fl wrap" id="hot1">
+            <div class="title"><span class="current">热门医生</span>/<span>热门科室</span>(按服务量)</div>
+            <div class="swiper-container hot-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide module-bar2 hot-doc "></div>
+                    <div class="swiper-slide module-bar2 hot-dept"></div>
+                </div>
+                <ol>
+                    <li class="current">1</li>
+                    <li>2</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="oh part2">
+        <div class="fl wrap">
+            <div class="title">预约挂号趋势</div>
+            <div class="yygh-line module-line" id="yygh-line"></div>
+        </div>
+        <div class="fl wrap" id="liang">
+            <div class="title"><span>分诊量</span>/<span>转诊量</span>/<span>会诊量</span>/<span>问诊量</span></div>
+            <div class="swiper-container liang-swiper">
+                <div class="swiper-wrapper">
+                    <div data-linestyle-color="#fb9861" data-areastyle-color="#413d51"
+                         class="swiper-slide module-line liang-fz"></div>
+                    <div data-linestyle-color="#f4e925" data-areastyle-color="#413d51"
+                         class="swiper-slide module-line liang-zz"></div>
+                    <div data-linestyle-color="#fa9d09" data-areastyle-color="#413d51"
+                         class="swiper-slide module-line liang-hz"></div>
+                    <div data-linestyle-color="#2280fb" data-areastyle-color="#413d51"
+                         class="swiper-slide module-line liang-wz"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="oh part3">
+        <div class="fl wrap">
+            <div class="title">实时咨询情况</div>
+            <div id="slide-sszxqk" class="module-slide"></div>
+        </div>
+        <div class="fl wrap">
+            <div class="title">实时评价情况</div>
+            <div id="slide-sspjqk" class="module-slide"></div>
+        </div>
+        <div class="fl wrap" id="hot2">
+            <div class="title"><span class="current">热门医生</span>/<span>热门科室</span>(按评分)</div>
+            <div class="swiper-container hot2-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide module-bar2 hot2-doc "></div>
+                    <div class="swiper-slide module-bar2 hot2-dept"></div>
+                </div>
+                <ol>
+                    <li class="current">1</li>
+                    <li>2</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>技术支持：杭州特扬网络科技有限公司</footer>
+<script type="text/javascript" src="/echarts/commons.js"></script><script type="text/javascript" src="/echarts/page2.61b48fb5567b1494082f.js"></script></body>
+</html>
